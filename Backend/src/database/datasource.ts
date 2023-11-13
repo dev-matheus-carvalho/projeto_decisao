@@ -15,7 +15,7 @@ class DataSource {
       port: Number(process.env.PORT),
       dialect: process.env.DB as Dialect,
       define: { freezeTableName: true },
-      sync: { force: false },
+      sync: { force: true },
     };
     this.sequelize = new Sequelize(this.config);
     this.models = new Models(this.sequelize);

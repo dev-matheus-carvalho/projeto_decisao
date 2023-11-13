@@ -1,5 +1,8 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 import { Models } from '../database/models';
+import { EnderecoInterface } from '../interfaces/EnderecoInterface';
+import { TelefoneInterace } from '../interfaces/TelefoneInterface';
+import { EmailInterface } from '../interfaces/EmailInterface';
 
 export class ClienteModel extends Model {
   /* Coloque aqui suas entidades. Use o exemplo a
@@ -7,13 +10,16 @@ export class ClienteModel extends Model {
 
   public idCliente!: string;
   public name!: string;
-  public identificacao!: string;
+  public readonly identificacao!: string;
   public nome_fantasia?: string;
   public nome_mae?: string;
   public inscricao_municipal?: string;
   public inscricao_estadual?: string;
   public data_cadastro!: Date;
   public situacao!: string;
+  public endereco!: Array<EnderecoInterface>;
+  public telefone!: Array<TelefoneInterace>;
+  public email!: Array<EmailInterface>;
 
   public idUsuario!: string;
 
@@ -55,6 +61,18 @@ export class ClienteModel extends Model {
           allowNull: false,
         },
         situacao: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        endereco: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        telefone: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        email: {
           type: DataTypes.STRING,
           allowNull: false,
         },
