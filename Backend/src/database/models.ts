@@ -1,10 +1,12 @@
 import { Sequelize } from 'sequelize';
-import { ExempleModel } from 'src/models/ExempleModel';
 
+import { UsuarioModel } from '../models/UsuarioModel';
+import { ClienteModel } from '../models/ClienteModel';
 
 export class Models {
   /* Coloque aqui o nome das suas entidades como o exemplo abaixo */
-   public exemple: typeof ExempleModel = ExempleModel;
+  public usuario: typeof UsuarioModel = UsuarioModel;
+  public cliente: typeof ClienteModel = ClienteModel;
 
   constructor(db: Sequelize) {
     Object.keys(this).forEach((pModel: string) => {
