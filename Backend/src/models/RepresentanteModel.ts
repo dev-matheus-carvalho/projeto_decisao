@@ -1,30 +1,30 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 import { Models } from '../database/models';
 
-export class TelefoneModel extends Model {
+export class RepresentanteModel extends Model {
   /* Coloque aqui suas entidades. Use o exemplo a
   seguir para criar suas próprias entidades */
 
-  public idTelefone!: string;
-  public numero!: string;
-  public is_principal!: boolean;
+  public idRepresentante!: string;
+  public nome!: string;
+  public readonly identificacao!: string;
 
   public idCliente!: string;
 
   static initialization(db: Sequelize) {
     this.init(
       {
-        idTelefone: {
+        idRepresentante: {
           type: DataTypes.UUID,
           defaultValue: DataTypes.UUIDV4,
           allowNull: false,
           primaryKey: true,
         },
-        numero: {
+        nome: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        is_principal: {
+        identificacao: {
           type: DataTypes.STRING,
           allowNull: false,
         },
@@ -36,7 +36,7 @@ export class TelefoneModel extends Model {
 
       {
         sequelize: db,
-        modelName: 'Telefone', // O nome da tabela
+        modelName: 'Representante', // O nome da tabela
       },
     );
   }

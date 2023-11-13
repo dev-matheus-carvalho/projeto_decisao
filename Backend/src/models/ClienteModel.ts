@@ -1,8 +1,5 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 import { Models } from '../database/models';
-import { EnderecoInterface } from '../interfaces/EnderecoInterface';
-import { TelefoneInterace } from '../interfaces/TelefoneInterface';
-import { EmailInterface } from '../interfaces/EmailInterface';
 
 export class ClienteModel extends Model {
   /* Coloque aqui suas entidades. Use o exemplo a
@@ -17,9 +14,6 @@ export class ClienteModel extends Model {
   public inscricao_estadual?: string;
   public data_cadastro!: Date;
   public situacao!: string;
-  public endereco!: Array<EnderecoInterface>;
-  public telefone!: Array<TelefoneInterace>;
-  public email!: Array<EmailInterface>;
 
   public idUsuario!: string;
 
@@ -64,18 +58,6 @@ export class ClienteModel extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        endereco: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        telefone: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        email: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
         idUsuario: {
           type: DataTypes.UUID,
           allowNull: false,
@@ -92,11 +74,35 @@ export class ClienteModel extends Model {
   /* Coloque aqui suas associações */
 
   static association(models: Models) {
-    this.belongsTo(models.usuario, {
+    this.hasMany(models.usuario, {
       as: 'usuario',
       foreignKey: {
         field: 'idUsuario',
         name: 'idUsuario',
+      },
+    });
+
+    this.belongsTo(models.endereco, {
+      as: 'endereco',
+      foreignKey: {
+        field: 'idCliente',
+        name: 'idCliente',
+      },
+    });
+
+    this.belongsTo(models.telefone, {
+      as: 'telefone',
+      foreignKey: {
+        field: 'idCliente',
+        name: 'idCliente',
+      },
+    });
+
+    this.belongsTo(models.email, {
+      as: 'email',
+      foreignKey: {
+        field: 'idCliente',
+        name: 'idCliente',
       },
     });
   }
