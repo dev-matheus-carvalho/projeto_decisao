@@ -1,9 +1,17 @@
 import { Router } from 'express';
-import { criarUsuario, listarUsuarios } from '../controllers/UsuarioController';
+import {
+  atualizarUsuario,
+  criarUsuario,
+  deletarUsuario,
+  listarUsuarios,
+} from '../controllers/UsuarioController';
+import { UsuarioFormMiddleware } from '../middlewares/UsuarioMiddleware';
 
 const router = Router();
 
 router.get('/', listarUsuarios);
-router.post('/', criarUsuario);
+router.post('/', UsuarioFormMiddleware, criarUsuario);
+router.put('/:id', UsuarioFormMiddleware, atualizarUsuario);
+router.delete('/:id', deletarUsuario);
 
 export { router };

@@ -3,7 +3,17 @@ import { UsuarioModel } from '../models/UsuarioModel';
 import { v4 } from 'uuid';
 
 export async function getAllUsuarios(): Promise<UsuarioModel[]> {
-  return await UsuarioModel.findAll();
+  const listaDeUsuarios = await UsuarioModel.findAll();
+  const data = [];
+
+  for (const dado of listaDeUsuarios) {
+    data.push({
+      idUsuario: dado.idUsuario,
+      nome: dado.nome,
+      email: dado.email,
+    });
+  }
+  return data;
 }
 
 export async function createUsuario(
@@ -27,10 +37,22 @@ export async function createUsuario(
 }
 
 export async function updateUsuarios(
+  id: string,
   nome: string,
   email: string,
   senha: string,
 ) {
-  // const updateUsuario = await UsuarioModel.update()
-  return;
+  const updateUsuario = await UsuarioModel.update(
+    {
+      nome: nome,
+      email: email,
+      senha: senha,
+    },
+    { where: { idUsuario: id }, returning: ['*'] },
+  );
+  return updateUsuario;
+}
+
+export async function deleteUsuario(id: string) {
+  return await UsuarioModel.destroy({ where: { idUsuario: id } });
 }
