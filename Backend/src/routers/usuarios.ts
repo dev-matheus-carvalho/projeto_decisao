@@ -4,6 +4,7 @@ import {
   criarUsuario,
   deletarUsuario,
   listarUsuarios,
+  pegarUsuarioPorID,
 } from '../controllers/UsuarioController';
 import {
   UpdateUsuarioMiddleware,
@@ -13,6 +14,7 @@ import {
 const router = Router();
 
 router.get('/', listarUsuarios);
+router.get('/:id', pegarUsuarioPorID);
 router.post('/', UsuarioFormMiddleware, criarUsuario);
 router.put('/:id', UpdateUsuarioMiddleware, atualizarUsuario);
 router.delete('/:id', deletarUsuario);

@@ -4,6 +4,7 @@ import {
   createUsuario,
   deleteUsuario,
   getAllUsuarios,
+  getUserByID,
   updateUsuarios,
   verificaSenha,
 } from '../services/UsuariosService';
@@ -22,6 +23,24 @@ export async function listarUsuarios(_, response: Response) {
     }
   } catch (error) {
     CustomError(response, 'Erro Interno: Falha ao listar usuários!', 500);
+  }
+}
+
+export async function pegarUsuarioPorID(request: Request, response: Response) {
+  try {
+    const { id } = request.params;
+    const usuario = await getUserByID(id);
+
+    if (usuario === false)
+      return response.status(400).json('Usuário não encontrado');
+
+    return response.status(200).json(usuario);
+  } catch (error) {
+    CustomError(
+      response,
+      'Erro Interno: Verifque a identificação do usuário',
+      500,
+    );
   }
 }
 

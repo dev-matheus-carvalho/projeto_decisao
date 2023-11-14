@@ -17,6 +17,14 @@ export async function getAllUsuarios(): Promise<UsuarioModel[]> {
   return data;
 }
 
+export async function getUserByID(id: string) {
+  const usuario = await UsuarioModel.findOne({ where: { idUsuario: id } });
+
+  if (!usuario) return false;
+
+  return usuario;
+}
+
 export async function createUsuario(
   nome: string,
   email: string,
