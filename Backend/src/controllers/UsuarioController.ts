@@ -86,15 +86,3 @@ export async function deletarUsuario(request: Request, response: Response) {
     CustomError(response, 'Erro Interno: Falha ao deletar usuário', 500);
   }
 }
-
-export async function Exemplo(request: Request, response: Response) {
-  const { senha } = request.body;
-  const { id } = request.params;
-
-  const usuarioExiste = await UsuarioExiste(id); // true (existe) ou false (não existe)
-
-  if (usuarioExiste === false) return response.send('Usuário não existe');
-
-  const senhaOk = await verificaSenha(id, senha); // true (senha igual) ou false (senha diferente)
-  return response.send(senhaOk);
-}
