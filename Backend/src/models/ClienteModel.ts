@@ -10,9 +10,10 @@ export class ClienteModel extends Model {
   public readonly identificacao!: string;
   public nome_fantasia?: string;
   public nome_mae?: string;
-  public inscrição_municipal?: string;
-  public inscrição_estadual?: string;
+  public inscricao_municipal?: string;
+  public inscricao_estadual?: string;
   public data_criacao!: Date;
+  public autor!: string;
 
   public idUsuario!: string;
 
@@ -29,6 +30,10 @@ export class ClienteModel extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
+        identificacao: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
         nome_fantasia: {
           type: DataTypes.STRING,
           allowNull: true,
@@ -37,16 +42,20 @@ export class ClienteModel extends Model {
           type: DataTypes.STRING,
           allowNull: true,
         },
-        inscrição_municipal: {
+        inscricao_municipal: {
           type: DataTypes.STRING,
           allowNull: true,
         },
-        inscrição_estadual: {
+        inscricao_estadual: {
           type: DataTypes.STRING,
           allowNull: true,
         },
         data_criacao: {
           type: DataTypes.DATE,
+          allowNull: false,
+        },
+        autor: {
+          type: DataTypes.UUID,
           allowNull: false,
         },
         idUsuario: {

@@ -1,45 +1,57 @@
-// import { v4 } from 'uuid';
-// import { ClienteBodyInterface } from '../interfaces/ClienteInterface';
-// import { ClienteModel } from '../models/ClienteModel';
+import { v4 } from 'uuid';
+import { ClienteModel } from '../models/ClienteModel';
 
-// export async function getAllClientes(): Promise<Array<ClienteModel>> {
-//   return await ClienteModel.findAll();
-// }
+export function identificarCPF(identificacao: string) {
+  const isCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+  return isCPF.test(identificacao);
+}
 
-// export async function getClienteById(id: string): Promise<ClienteModel> {
-//   return await ClienteModel.findOne({ where: { idCliente: id } });
-// }
+export async function createCliente(
+  nome: string,
+  identificacao: string,
+  nome_fantasia: string,
+  nome_mae: string,
+  inscricao_municipal: string,
+  inscricao_estadual: string,
+  autor: string,
+  idUsuario: string,
+) {
+  /* Identifica o se existe a identificação. Se não existir o mesmo
+  cpf ou cnpj ele retorna nulo, aí pode cadastrar*/
+  // const clienteExiste = await ClienteModel.findOne({
+  //   where: { identificacao },
+  // });
 
-// export async function createCliente(
-//   cliente: ClienteBodyInterface,
-// ): Promise<boolean> {
-//   const usuarioExiste = await ClienteModel.findOne({
-//     where: { identificacao: cliente.identificacao },
-//   });
+  /* Ele retorna o cliente se existir o mesmo autor.
+  Exemplo: autor: 123 se existir ele retorna o cliente */
+  // const mesmoAutor = await ClienteModel.findOne({
+  //   where: { autor },
+  // });
 
-//   // Se não existe retorna null e cadastra o cliente
-//   // Se ele existe, ele retorna o usuário
+  /* Se eu mudo o cpf/cnpj ou o id do autor, ele retorna nulo.
+  Dessa forma, se retorna nulo eu posso cadastrar um novo cliente */
+  const mesmoAutor = await ClienteModel.findOne({
+    where: { autor, identificacao },
+  });
 
-//   if (usuarioExiste === null) {
-//     await ClienteModel.create({
-//       idCliente: v4(),
-//       name: cliente.name,
-//       identificacao: cliente.identificacao,
-//       nome_fantasia: cliente.nome_fantasia,
-//       nome_mae: cliente.nome_mae,
-//       inscricao_municipal: cliente.inscricao_municipal,
-//       inscricao_estadual: cliente.inscricao_estadual,
-//       data_cadastro: new Date(),
-//       situacao: cliente.situacao,
-//       idUsuario: cliente.idUsuario,
-//     });
+  return mesmoAutor;
 
-//     return false;
-//   } else {
-//     return true;
-//   }
-// }
+  // if (mesmoAutor === null) {
+  //   return 'Pode cadastrar';
+  // } else {
+  //   return 'Não pode cadastrar';
+  // }
+}
 
-// export async function updateCliente() {
-//   return;
-// }
+// return await ClienteModel.create({
+//   idCliente: v4(),
+//   nome: nome,
+//   identificacao: identificacao,
+//   nome_fantasia: nome_fantasia,
+//   nome_mae: nome_mae,
+//   inscricao_municipal: inscricao_municipal,
+//   inscricao_estadual: inscricao_estadual,
+//   data_criacao: new Date(),
+//   autor: autor,
+//   idUsuario: idUsuario,
+// });
