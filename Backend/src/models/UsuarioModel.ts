@@ -6,7 +6,7 @@ export class UsuarioModel extends Model {
   seguir para criar suas próprias entidades */
 
   public idUsuario!: string;
-  public name!: string;
+  public nome!: string;
   public email!: string;
   public senha!: string;
 
@@ -19,7 +19,7 @@ export class UsuarioModel extends Model {
           allowNull: false,
           primaryKey: true,
         },
-        name: {
+        nome: {
           type: DataTypes.STRING,
           allowNull: false,
         },
@@ -35,7 +35,7 @@ export class UsuarioModel extends Model {
 
       {
         sequelize: db,
-        modelName: 'Usuario', // O nome da tabela
+        modelName: 'Usuarios', // O nome da tabela
       },
     );
   }
@@ -44,7 +44,7 @@ export class UsuarioModel extends Model {
 
   static association(models: Models) {
     this.belongsTo(models.cliente, {
-      as: 'clientes',
+      as: 'cliente',
       foreignKey: {
         field: 'idUsuario',
         name: 'idUsuario',

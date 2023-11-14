@@ -44,8 +44,8 @@ export class RepresentanteModel extends Model {
   /* Coloque aqui suas associações */
 
   static association(models: Models) {
-    this.hasMany(models.cliente, {
-      as: 'clientes',
+    this.belongsTo(models.cliente, {
+      as: 'cliente',
       foreignKey: {
         field: 'idCliente',
         name: 'idCliente',

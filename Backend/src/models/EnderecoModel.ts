@@ -13,7 +13,7 @@ export class EnderecoModel extends Model {
   public bairro!: string;
   public cidade!: string;
   public estado!: string;
-  public is_principal!: boolean;
+  public is_principal!: string;
 
   public idCliente!: string;
 
@@ -36,7 +36,7 @@ export class EnderecoModel extends Model {
         },
         numero: {
           type: DataTypes.STRING,
-          allowNull: false,
+          allowNull: true,
         },
         complemento: {
           type: DataTypes.STRING,
@@ -74,8 +74,8 @@ export class EnderecoModel extends Model {
   /* Coloque aqui suas associações */
 
   static association(models: Models) {
-    this.hasMany(models.cliente, {
-      as: 'clientes',
+    this.belongsTo(models.cliente, {
+      as: 'cliente',
       foreignKey: {
         field: 'idCliente',
         name: 'idCliente',

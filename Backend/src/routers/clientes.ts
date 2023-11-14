@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { v4 } from 'uuid';
+// import { v4 } from 'uuid';
 
-import { ClienteModel } from '../models/ClienteModel';
-import {
-  criarCliente,
-  listarClientes,
-  pesquisarClientePorId,
-} from '../controllers/ClienteController';
+// import { ClienteModel } from '../models/ClienteModel';
+// import {
+//   criarCliente,
+//   listarClientes,
+//   pesquisarClientePorId,
+// } from '../controllers/ClienteController';
 
 const router = Router();
 

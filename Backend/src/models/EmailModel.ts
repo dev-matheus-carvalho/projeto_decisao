@@ -7,7 +7,7 @@ export class EmailModel extends Model {
 
   public idEmail!: string;
   public email!: string;
-  public is_principal!: boolean;
+  public is_principal!: string;
 
   public idCliente!: string;
 
@@ -44,8 +44,8 @@ export class EmailModel extends Model {
   /* Coloque aqui suas associações */
 
   static association(models: Models) {
-    this.hasMany(models.cliente, {
-      as: 'clientes',
+    this.belongsTo(models.cliente, {
+      as: 'cliente',
       foreignKey: {
         field: 'idCliente',
         name: 'idCliente',
