@@ -1,7 +1,13 @@
+import { JwtPayload } from 'jsonwebtoken';
+import { v4 } from 'uuid';
+
 import { Descriptografar, Encriptar } from '../security/UsuarioSecurity';
 import { UsuarioInterface } from '../interfaces/UsuarioInterface';
 import { UsuarioModel } from '../models/UsuarioModel';
-import { v4 } from 'uuid';
+
+export async function usuarioLogado(email: string | JwtPayload) {
+  return await UsuarioModel.findOne({ where: { email } });
+}
 
 export async function getAllUsuarios(): Promise<UsuarioModel[]> {
   const listaDeUsuarios = await UsuarioModel.findAll();

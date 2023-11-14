@@ -10,13 +10,14 @@ import {
   UpdateUsuarioMiddleware,
   UsuarioFormMiddleware,
 } from '../middlewares/UsuarioMiddleware';
+import { SessaoToken } from '../middlewares/AuthMiddleware';
 
 const router = Router();
 
-router.get('/', listarUsuarios);
-router.get('/:id', pegarUsuarioPorID);
+router.get('/', SessaoToken, listarUsuarios);
+router.get('/:id', SessaoToken, pegarUsuarioPorID);
 router.post('/', UsuarioFormMiddleware, criarUsuario);
-router.put('/:id', UpdateUsuarioMiddleware, atualizarUsuario);
-router.delete('/:id', deletarUsuario);
+router.put('/:id', SessaoToken, UpdateUsuarioMiddleware, atualizarUsuario);
+router.delete('/:id', SessaoToken, deletarUsuario);
 
 export { router };
