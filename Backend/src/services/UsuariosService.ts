@@ -1,3 +1,4 @@
+import { Descriptografar, Encriptar } from '../security/UsuarioSecurity';
 import { UsuarioInterface } from '../interfaces/UsuarioInterface';
 import { UsuarioModel } from '../models/UsuarioModel';
 import { v4 } from 'uuid';
@@ -16,6 +17,23 @@ export async function getAllUsuarios(): Promise<UsuarioModel[]> {
   return data;
 }
 
+export async function loginUsuario(email: string, senha: string) {
+  const usuarioExiste = await UsuarioModel.findOne({ where: { email } });
+  if (!usuarioExiste) return true;
+
+  const senhaEncriptada = usuarioExiste.senha;
+  const verificaSenha = await Descriptografar(senha, senhaEncriptada);
+  if (verificaSenha === false) return false;
+
+  const dados = {
+    usuario: {
+      nome: usuarioExiste.nome,
+      email: usuarioExiste.email,
+    },
+  };
+  return dados;
+}
+
 export async function createUsuario(
   nome: string,
   email: string,
@@ -25,11 +43,12 @@ export async function createUsuario(
 
   if (usuarioExiste === null) {
     // crie o usuario
+    const senhaEncriptografada = await Encriptar(senha);
     return await UsuarioModel.create({
       idUsuario: v4(),
       nome: nome,
       email: email,
-      senha: senha,
+      senha: senhaEncriptografada,
     });
   } else {
     return false;
