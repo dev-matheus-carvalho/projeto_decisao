@@ -18,6 +18,9 @@ export class UsuarioModel extends Model {
           defaultValue: DataTypes.UUIDV4,
           allowNull: false,
           primaryKey: true,
+          // type: DataTypes.INTEGER,
+          // allowNull: false,
+          // primaryKey: true,
         },
         nome: {
           type: DataTypes.STRING,

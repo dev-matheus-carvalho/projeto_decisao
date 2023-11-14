@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { loginUsuario } from '../services/UsuariosService';
 import { CustomError } from '../error/CustomError';
+import { loginUsuario } from '../services/LoginService';
 
 export async function Login(request: Request, response: Response) {
   try {

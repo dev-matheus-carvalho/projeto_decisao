@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import {
+  Exemplo,
   atualizarUsuario,
   criarUsuario,
   deletarUsuario,
@@ -11,7 +12,9 @@ const router = Router();
 
 router.get('/', listarUsuarios);
 router.post('/', UsuarioFormMiddleware, criarUsuario);
-router.put('/:id', UsuarioFormMiddleware, atualizarUsuario);
+router.put('/:id', atualizarUsuario);
 router.delete('/:id', deletarUsuario);
+
+router.put('/exemple/:id', Exemplo);
 
 export { router };

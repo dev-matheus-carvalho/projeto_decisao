@@ -1,12 +1,15 @@
 import { Request, Response } from 'express';
 import {
+  UsuarioExiste,
   createUsuario,
   deleteUsuario,
   getAllUsuarios,
   updateUsuarios,
+  verificaSenha,
 } from '../services/UsuariosService';
 import { UsuarioInterface } from '../interfaces/UsuarioInterface';
 import { CustomError } from '../error/CustomError';
+import { Encriptar } from '../security/UsuarioSecurity';
 
 export async function listarUsuarios(_, response: Response) {
   try {
@@ -44,16 +47,26 @@ export async function criarUsuario(
 
 export async function atualizarUsuario(request: Request, response: Response) {
   try {
-    const { nome, email, senha } = request.body;
+    const { nome, email, senha, novaSenha } = request.body;
     const { id } = request.params;
 
-    const usuario = await updateUsuarios(id, nome, email, senha);
-
-    if (usuario[0] === 0) {
+    // true (existe) ou false (não existe)
+    const usuarioExiste = await UsuarioExiste(id);
+    if (usuarioExiste === false)
       return response.status(400).json('Usuário não encontrado');
-    } else {
-      return response.status(200).json('Usuário atualizado com sucesso');
-    }
+
+    // true (senha igual) ou false (senha diferente)
+    const senhaOk = await verificaSenha(id, senha);
+    if (senhaOk === false)
+      return response
+        .status(400)
+        .json('Senha incompatível. Verifique sua senha atual');
+
+    const newSenha = await Encriptar(novaSenha);
+
+    await updateUsuarios(id, nome, email, newSenha);
+
+    return response.status(200).json('Usuário atualizado com sucesso');
   } catch (error) {
     CustomError(response, 'Erro Interno: Falha ao atualizar usuário', 500);
   }
@@ -72,4 +85,16 @@ export async function deletarUsuario(request: Request, response: Response) {
   } catch (error) {
     CustomError(response, 'Erro Interno: Falha ao deletar usuário', 500);
   }
+}
+
+export async function Exemplo(request: Request, response: Response) {
+  const { senha } = request.body;
+  const { id } = request.params;
+
+  const usuarioExiste = await UsuarioExiste(id); // true (existe) ou false (não existe)
+
+  if (usuarioExiste === false) return response.send('Usuário não existe');
+
+  const senhaOk = await verificaSenha(id, senha); // true (senha igual) ou false (senha diferente)
+  return response.send(senhaOk);
 }

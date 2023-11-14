@@ -17,23 +17,6 @@ export async function getAllUsuarios(): Promise<UsuarioModel[]> {
   return data;
 }
 
-export async function loginUsuario(email: string, senha: string) {
-  const usuarioExiste = await UsuarioModel.findOne({ where: { email } });
-  if (!usuarioExiste) return true;
-
-  const senhaEncriptada = usuarioExiste.senha;
-  const verificaSenha = await Descriptografar(senha, senhaEncriptada);
-  if (verificaSenha === false) return false;
-
-  const dados = {
-    usuario: {
-      nome: usuarioExiste.nome,
-      email: usuarioExiste.email,
-    },
-  };
-  return dados;
-}
-
 export async function createUsuario(
   nome: string,
   email: string,
@@ -74,4 +57,24 @@ export async function updateUsuarios(
 
 export async function deleteUsuario(id: string) {
   return await UsuarioModel.destroy({ where: { idUsuario: id } });
+}
+
+export async function UsuarioExiste(id: string) {
+  const resultado = await UsuarioModel.findOne({ where: { idUsuario: id } });
+
+  if (!resultado) return false;
+
+  return true;
+}
+
+export async function verificaSenha(id: string, senha: string) {
+  const usuarioExiste = await UsuarioModel.findOne({
+    where: { idUsuario: id },
+  });
+  if (!usuarioExiste) return false;
+
+  const senhaEncriptada = usuarioExiste.senha;
+  const verificaSenha = await Descriptografar(senha, senhaEncriptada);
+  if (verificaSenha === false) return false;
+  return true;
 }
