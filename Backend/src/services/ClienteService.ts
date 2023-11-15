@@ -51,6 +51,7 @@ export async function createCliente(
   inscricao_municipal: string,
   inscricao_estadual: string,
   autor: string,
+  situacao: string,
   idUsuario: string,
 ) {
   return await ClienteModel.create({
@@ -63,6 +64,7 @@ export async function createCliente(
     inscricao_estadual: inscricao_estadual,
     data_criacao: new Date(),
     autor: autor,
+    situacao,
     idUsuario: idUsuario,
   });
 }

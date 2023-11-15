@@ -1,9 +1,13 @@
 import { Router } from 'express';
+import { criarRepresentante } from '../controllers/RepresentanteController';
 
 const router = Router();
 
-router.get('/', async (resquest, response) => {
-  response.send('Sou a rota representante');
+router.post('/', criarRepresentante);
+
+router.post('/teste', async (request, response) => {
+  const { nome, identificacao, idCliente } = request.body;
+  response.send(`${nome}, ${identificacao}, ${idCliente}`);
 });
 
 export { router };

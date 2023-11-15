@@ -9,7 +9,7 @@ export class RepresentanteModel extends Model {
   public nome!: string;
   public readonly identificacao!: string;
 
-  public idCliente!: string;
+  public idCliente?: string;
 
   static initialization(db: Sequelize) {
     this.init(
@@ -30,7 +30,7 @@ export class RepresentanteModel extends Model {
         },
         idCliente: {
           type: DataTypes.UUID,
-          allowNull: false,
+          allowNull: true,
         },
       },
 

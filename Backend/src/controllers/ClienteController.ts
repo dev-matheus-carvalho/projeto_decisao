@@ -74,6 +74,7 @@ export async function criarCliente(
       nome_mae,
       inscricao_municipal,
       inscricao_estadual,
+      situacao,
       idUsuario,
     } = request.body;
 
@@ -100,6 +101,7 @@ export async function criarCliente(
       inscricao_municipal,
       inscricao_estadual,
       usuario.idUsuario,
+      situacao,
       idUsuario,
     );
 
