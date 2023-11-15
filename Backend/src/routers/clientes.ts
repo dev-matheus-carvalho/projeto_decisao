@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import {
   atualizarCliente,
+  buscarClientePorID,
   criarCliente,
+  listarClientes,
 } from '../controllers/ClienteController';
 import { SessaoToken } from '../middlewares/AuthMiddleware';
 import {
@@ -11,9 +13,8 @@ import {
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.send('Sou o cliente');
-});
+router.get('/', SessaoToken, listarClientes);
+router.get('/:id', SessaoToken, buscarClientePorID);
 
 router.post('/', SessaoToken, ClienteMiddleware, criarCliente);
 router.put('/:id', SessaoToken, ClienteUpdateMiddleware, atualizarCliente);

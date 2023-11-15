@@ -3,6 +3,7 @@ import { RequestExtends } from '../interfaces/RequestInterface';
 import {
   createCliente,
   findClienteByID,
+  getAllClientes,
   identificarCPF,
   mesmoAutor,
   mesmoCliente,
@@ -10,6 +11,56 @@ import {
 } from '../services/ClienteService';
 import { usuarioLogado } from '../services/UsuariosService';
 import { CustomError } from '../error/CustomError';
+
+export async function listarClientes(
+  request: RequestExtends,
+  response: Response,
+) {
+  try {
+    const email = request.user;
+    const usuario = await usuarioLogado(email);
+
+    const listaClientes = await getAllClientes();
+
+    if (listaClientes.length === 0) {
+      return response
+        .status(401)
+        .json('Não existem clientes cadastrados no sistemas');
+    }
+
+    const data = {
+      usuario: usuario.nome,
+      clientes: listaClientes,
+    };
+
+    return response.status(200).json(data);
+  } catch (error) {
+    CustomError(response, 'Erro Interno: Erro ao listar os clientes', 500);
+  }
+}
+
+export async function buscarClientePorID(
+  request: RequestExtends,
+  response: Response,
+) {
+  try {
+    const { id } = request.params;
+    const email = request.user;
+    const usuario = await usuarioLogado(email);
+
+    const clienteExist = await findClienteByID(id);
+
+    if (clienteExist === false)
+      return response.status(400).json('Cliente não existe no sistema');
+    const data = {
+      usuario: usuario.nome,
+      cliente: clienteExist,
+    };
+    return response.status(200).json(data);
+  } catch (error) {
+    CustomError(response, 'Erro Interno: Erro ao procurar cliente', 500);
+  }
+}
 
 export async function criarCliente(
   request: RequestExtends,
@@ -90,7 +141,7 @@ export async function atualizarCliente(
 
     const clienteExist = await findClienteByID(id);
 
-    if (clienteExist == false)
+    if (clienteExist === false)
       return response.status(400).json('Cliente não existe no sistema');
 
     await updateCliente(

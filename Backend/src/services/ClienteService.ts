@@ -18,12 +18,16 @@ export async function mesmoCliente(identificacao: string) {
   }
 }
 
+export async function getAllClientes() {
+  return await ClienteModel.findAll();
+}
+
 export async function findClienteByID(idCliente: string) {
-  const procurarCliente = await ClienteModel.findOne({ where: { idCliente } });
-  if (procurarCliente === null) {
+  const cliente = await ClienteModel.findOne({ where: { idCliente } });
+  if (cliente === null) {
     return false;
   } else {
-    return true;
+    return cliente;
   }
 }
 
