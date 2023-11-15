@@ -14,6 +14,7 @@ export class ClienteModel extends Model {
   public inscricao_estadual?: string;
   public data_criacao!: Date;
   public autor!: string;
+  public situacao!: string;
 
   public idUsuario!: string;
 
@@ -57,6 +58,10 @@ export class ClienteModel extends Model {
         autor: {
           type: DataTypes.UUID,
           allowNull: false,
+        },
+        situacao: {
+          type: DataTypes.STRING,
+          allowNull: true,
         },
         idUsuario: {
           type: DataTypes.UUID,
