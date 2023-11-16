@@ -7,10 +7,12 @@ import {
   getAllRepresentante,
   getRepresentanteByID,
   representanteExiste,
+  updateteRepresentante,
   verificaCadastroClienteDuplicado,
   verificaRepresentanteDuplicado,
 } from '../services/RepresentanteService';
 import { CustomError } from '../error/CustomError';
+import { findClienteByID } from '../services/ClienteService';
 
 export async function listarRepresentantes(_, response: Response) {
   try {
@@ -76,6 +78,33 @@ export async function criarRepresentante(
     return response.status(200).json('Representante cadastrado com sucesso');
   } catch (error) {
     CustomError(response, 'Erro Interno: Erro ao cadastrar representante', 500);
+  }
+}
+
+export async function atualizarRepresentante(
+  request: RequestExtends,
+  response: Response,
+) {
+  try {
+    const { id } = request.params;
+    const { nome, idCliente } = request.body;
+
+    const existeCliente = await findClienteByID(idCliente);
+
+    if (existeCliente === false) {
+      return response.status(400).json('Cliente não existe no sistema');
+    }
+
+    const existeRepresentante = await representanteExiste(id);
+
+    if (existeRepresentante === false) {
+      return response.status(400).json('Representante não existe no sistema');
+    } else {
+      await updateteRepresentante(id, nome, idCliente);
+      return response.status(200).json('Representante atualizado com sucesso');
+    }
+  } catch (error) {
+    CustomError(response, 'Erro Interno: Erro ao atualizar Representante', 500);
   }
 }
 

@@ -55,7 +55,19 @@ export async function createRepresentante(
   });
 }
 
-export async function updateteRepresentante() {}
+export async function updateteRepresentante(
+  idRepresentante: string,
+  nome: string,
+  idCliente: string,
+) {
+  return await RepresentanteModel.update(
+    {
+      nome,
+      idCliente,
+    },
+    { where: { idRepresentante } },
+  );
+}
 
 export async function deleteRepresentante(idRepresentante: string) {
   return await RepresentanteModel.destroy({ where: { idRepresentante } });

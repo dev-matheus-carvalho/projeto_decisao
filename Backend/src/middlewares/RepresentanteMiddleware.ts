@@ -31,3 +31,25 @@ export function createRepresentanteMiddleware(
 
   next();
 }
+
+export function updateRepresentanteMiddleware(
+  request: Request,
+  response: Response,
+  next: NextFunction,
+) {
+  const { nome, idCliente } = request.body;
+
+  if (nome === undefined && idCliente === undefined) {
+    return response.status(400).json('Todos os campos devem ser preenchidos');
+  }
+
+  if (nome === undefined) {
+    return response.status(400).json('Campo nome deve ser preenchidos');
+  }
+
+  if (idCliente === undefined) {
+    return response.status(400).json('Campo idCliente deve ser preenchidos');
+  }
+
+  next();
+}
