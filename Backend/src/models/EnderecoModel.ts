@@ -13,7 +13,7 @@ export class EnderecoModel extends Model {
   public bairro!: string;
   public cidade!: string;
   public estado!: string;
-  public is_principal!: string;
+  public is_principal!: boolean;
 
   public idCliente!: string;
 
@@ -55,7 +55,7 @@ export class EnderecoModel extends Model {
           allowNull: false,
         },
         is_principal: {
-          type: DataTypes.STRING,
+          type: DataTypes.BOOLEAN,
           allowNull: false,
         },
         idCliente: {
