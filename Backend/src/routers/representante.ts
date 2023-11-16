@@ -6,12 +6,13 @@ import {
   deletarRepresentanteDoCliente,
   listarRepresentantes,
 } from '../controllers/RepresentanteController';
+import { createRepresentanteMiddleware } from '../middlewares/RepresentanteMiddleware';
 
 const router = Router();
 
 router.get('/', listarRepresentantes);
 router.get('/:id', buscarRepresentantePorID);
-router.post('/', criarRepresentante);
+router.post('/', createRepresentanteMiddleware, criarRepresentante);
 router.post('/:idRepresentante', deletarRepresentanteDoCliente);
 router.delete('/:idRepresentante', deletarRepresentante);
 
