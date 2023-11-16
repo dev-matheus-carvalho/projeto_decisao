@@ -34,9 +34,13 @@ export async function verificaCadastroClienteDuplicado(
   }
 }
 
-export async function getAllRepresentante() {}
+export async function getAllRepresentante() {
+  return await RepresentanteModel.findAll();
+}
 
-export async function getRepresentanteByID() {}
+export async function getRepresentanteByID(idRepresentante: string) {
+  return await RepresentanteModel.findOne({ where: { idRepresentante } });
+}
 
 export async function createRepresentante(
   nome: string,
@@ -53,4 +57,29 @@ export async function createRepresentante(
 
 export async function updateteRepresentante() {}
 
-export async function deleteRepresentante() {}
+export async function deleteRepresentante(idRepresentante: string) {
+  return await RepresentanteModel.destroy({ where: { idRepresentante } });
+}
+
+export async function deleteRepresentanteDoCliente(
+  idRepresentante: string,
+  idCliente: string,
+) {
+  return await RepresentanteModel.update(
+    {
+      idCliente: null,
+    },
+    { where: { idRepresentante, idCliente } },
+  );
+}
+
+export async function representanteExiste(idRepresentante: string) {
+  const resultado = await RepresentanteModel.findOne({
+    where: { idRepresentante },
+  });
+  if (resultado === null) {
+    return false;
+  } else {
+    return true;
+  }
+}

@@ -1,13 +1,18 @@
 import { Router } from 'express';
-import { criarRepresentante } from '../controllers/RepresentanteController';
+import {
+  buscarRepresentantePorID,
+  criarRepresentante,
+  deletarRepresentante,
+  deletarRepresentanteDoCliente,
+  listarRepresentantes,
+} from '../controllers/RepresentanteController';
 
 const router = Router();
 
+router.get('/', listarRepresentantes);
+router.get('/:id', buscarRepresentantePorID);
 router.post('/', criarRepresentante);
-
-router.post('/teste', async (request, response) => {
-  const { nome, identificacao, idCliente } = request.body;
-  response.send(`${nome}, ${identificacao}, ${idCliente}`);
-});
+router.post('/:idRepresentante', deletarRepresentanteDoCliente);
+router.delete('/:idRepresentante', deletarRepresentante);
 
 export { router };
