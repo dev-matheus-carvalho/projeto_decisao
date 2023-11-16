@@ -94,3 +94,7 @@ export async function updateCliente(
 
   return clienteAtualizado;
 }
+
+export async function deleteCliente(idCliente: string) {
+  return await ClienteModel.destroy({ where: { idCliente } });
+}

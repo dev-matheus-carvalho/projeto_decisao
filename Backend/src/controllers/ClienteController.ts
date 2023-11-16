@@ -2,6 +2,7 @@ import { Response } from 'express';
 import { RequestExtends } from '../interfaces/RequestInterface';
 import {
   createCliente,
+  deleteCliente,
   findClienteByID,
   getAllClientes,
   identificarCPF,
@@ -11,6 +12,7 @@ import {
 } from '../services/ClienteService';
 import { usuarioLogado } from '../services/UsuariosService';
 import { CustomError } from '../error/CustomError';
+import { verificaClienteERepresentante } from '../services/RepresentanteService';
 
 export async function listarClientes(
   request: RequestExtends,
@@ -164,5 +166,46 @@ export async function atualizarCliente(
     return response.status(200).json(data);
   } catch (error) {
     CustomError(response, 'Erro Interno: Erro ao atualizar cliente', 500);
+  }
+}
+
+export async function deletarCliente(
+  request: RequestExtends,
+  response: Response,
+) {
+  try {
+    const { id } = request.params;
+    const email = request.user;
+    const usuario = await usuarioLogado(email);
+    let data = {};
+
+    const existeCliente = await findClienteByID(id);
+
+    if (existeCliente === false) {
+      data = {
+        usuario: usuario.nome,
+        msg: 'Não existe esse cliente no sistema',
+      };
+      return response.status(400).json(data);
+    }
+
+    const temRepresentantes = await verificaClienteERepresentante(id);
+    if (temRepresentantes.length === 0) {
+      await deleteCliente(id);
+      data = {
+        usuario: usuario.nome,
+        msg: 'Cliente excluido com sucesso',
+      };
+      return response.status(200).json(data);
+    } else {
+      data = {
+        usuario: usuario.nome,
+        msg: 'Ação negada! Existem representantes associados a esse cliente',
+      };
+      return response.status(400).json(data);
+    }
+  } catch (error) {
+    console.log(error);
+    CustomError(response, 'Erro Interno: Erro ao deletar Cliente', 500);
   }
 }
