@@ -18,6 +18,10 @@ export async function listarEnderecosDeUmCliente(idCliente: string) {
   });
 }
 
+export async function buscarEndereco(idEndereco: string) {
+  return await EnderecoModel.findOne({ where: { idEndereco } });
+}
+
 export async function createEndereco(
   cep: string,
   logradouro: string,
@@ -43,6 +47,34 @@ export async function createEndereco(
   });
 }
 
+export async function updateEndereco(
+  idEndereco: string,
+  cep: string,
+  logradouro: string,
+  numero: string,
+  complemento: string,
+  bairro: string,
+  cidade: string,
+  estado: string,
+  is_principal: string,
+  idCliente: string,
+) {
+  return await EnderecoModel.update(
+    {
+      cep,
+      logradouro,
+      numero,
+      complemento,
+      bairro,
+      cidade,
+      estado,
+      is_principal,
+      idCliente,
+    },
+    { where: { idEndereco, idCliente } },
+  );
+}
+
 export async function updateDeEnderecoPrincipal(
   cep: string,
   idCliente: string,
@@ -52,3 +84,13 @@ export async function updateDeEnderecoPrincipal(
     { where: { idCliente, cep } },
   );
 }
+
+export async function updateMarcarPrincipal(cep: string, idCliente: string) {
+  return await EnderecoModel.update(
+    { is_principal: true },
+    { where: { idCliente, cep } },
+  );
+}
+
+/* idEndereco: '702e234d-329c-4c92-88fc-091ebea4b4da',
+  idCliente: 'a2e866a5-0296-4d19-88a6-3de3ef6eaa4c', */

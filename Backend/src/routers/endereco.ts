@@ -1,9 +1,13 @@
 import { Router } from 'express';
-import { criarEndereco } from '../controllers/EnderecoController';
-import { createEnderecoMiddleware } from '../middlewares/EnderecoMiddleware';
+import {
+  atualizarEndereco,
+  criarEndereco,
+} from '../controllers/EnderecoController';
+import { EnderecoMiddleware } from '../middlewares/EnderecoMiddleware';
 
 const router = Router();
 
-router.post('/', createEnderecoMiddleware, criarEndereco);
+router.post('/', EnderecoMiddleware, criarEndereco);
+router.put('/:id', EnderecoMiddleware, atualizarEndereco);
 
 export { router };
