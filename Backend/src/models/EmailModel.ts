@@ -7,7 +7,7 @@ export class EmailModel extends Model {
 
   public idEmail!: string;
   public email!: string;
-  public is_principal!: string;
+  public is_principal!: boolean;
 
   public idCliente!: string;
 
@@ -25,7 +25,7 @@ export class EmailModel extends Model {
           allowNull: false,
         },
         is_principal: {
-          type: DataTypes.STRING,
+          type: DataTypes.BOOLEAN,
           allowNull: false,
         },
         idCliente: {
