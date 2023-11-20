@@ -1,82 +1,79 @@
-import { TelefoneModel } from '../models/TelefoneModel';
+import { EmailModel } from '../models/EmailModel';
 import { v4 } from 'uuid';
 
-export async function verificarTelefonePorCliente(
-  numero: string,
+export async function verificarEmailPorCliente(
+  email: string,
   idCliente: string,
 ) {
-  return await TelefoneModel.findOne({ where: { numero, idCliente } });
+  return await EmailModel.findOne({ where: { email, idCliente } });
 }
 
-export async function verificaSeExisteTelefonePorCliente(idCliente: string) {
-  return await TelefoneModel.findAll({ where: { idCliente } });
+export async function verificaSeExisteEmailPorCliente(idCliente: string) {
+  return await EmailModel.findAll({ where: { idCliente } });
 }
-export async function buscarTelefonePorNumero(numero: string) {
-  return await TelefoneModel.findOne({
-    where: { numero },
+export async function buscarEmailPorEleMesmo(email: string) {
+  return await EmailModel.findOne({
+    where: { email },
   });
 }
 
-export async function listarTelefonesDeUmCliente(idCliente: string) {
-  return await TelefoneModel.findOne({
+export async function listarEmailsDeUmCliente(idCliente: string) {
+  return await EmailModel.findOne({
     where: { idCliente, is_principal: true },
   });
 }
 
-export async function listarTodosOsTelefones() {
-  return await TelefoneModel.findAll();
+export async function listarTodosOsEmails() {
+  return await EmailModel.findAll();
 }
 
-export async function buscarTelefone(idTelefone: string) {
-  return await TelefoneModel.findOne({ where: { idTelefone } });
+export async function buscarEmail(idEmail: string) {
+  return await EmailModel.findOne({ where: { idEmail } });
 }
 
-export async function createTelefone(
-  numero: string,
+export async function createEmail(
+  email: string,
   is_principal: string,
   idCliente: string,
 ) {
-  return await TelefoneModel.create({
-    idEndereco: v4(),
-    numero,
+  return await EmailModel.create({
+    idEmail: v4(),
+    email,
     is_principal,
     idCliente,
   });
 }
 
-export async function updateTelefone(
-  idTelefone: string,
-  numero: string,
+export async function updateEmail(
+  idEmail: string,
+  email: string,
   is_principal: string,
   idCliente: string,
 ) {
-  return await TelefoneModel.update(
+  return await EmailModel.update(
     {
-      numero,
+      email,
       is_principal,
       idCliente,
     },
-    { where: { idTelefone, idCliente } },
+    { where: { idEmail, idCliente } },
   );
 }
 
-export async function updateDeTelefonePrincipal(
-  numero: string,
-  idCliente: string,
-) {
-  return await TelefoneModel.update(
+export async function updateDeEmailPrincipal(email: string, idCliente: string) {
+  return await EmailModel.update(
     { is_principal: false },
-    { where: { idCliente, numero } },
+    { where: { idCliente, email } },
   );
 }
 
-export async function updateMarcarPrincipal(numero: string, idCliente: string) {
-  return await TelefoneModel.update(
+export async function updateMarcarPrincipal(email: string, idCliente: string) {
+  return await EmailModel.update(
     { is_principal: true },
-    { where: { idCliente, numero } },
+    { where: { idCliente, email } },
   );
 }
 
-export async function deleteTelefone(idTelefone: string) {
-  return await TelefoneModel.destroy({ where: { idTelefone } });
+export async function deleteEmail(idEmail: string) {
+  return await EmailModel.destroy({ where: { idEmail } });
 }
