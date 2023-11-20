@@ -11,11 +11,20 @@ export async function verificarEnderecoPorCliente(
 export async function verificaSeExisteEnderecoPorCliente(idCliente: string) {
   return await EnderecoModel.findAll({ where: { idCliente } });
 }
+export async function buscarEnderecoPorCep(cep: string) {
+  return await EnderecoModel.findOne({
+    where: { cep },
+  });
+}
 
 export async function listarEnderecosDeUmCliente(idCliente: string) {
   return await EnderecoModel.findOne({
     where: { idCliente, is_principal: true },
   });
+}
+
+export async function listarTodosOsEnderecos() {
+  return await EnderecoModel.findAll();
 }
 
 export async function buscarEndereco(idEndereco: string) {
@@ -92,5 +101,6 @@ export async function updateMarcarPrincipal(cep: string, idCliente: string) {
   );
 }
 
-/* idEndereco: '702e234d-329c-4c92-88fc-091ebea4b4da',
-  idCliente: 'a2e866a5-0296-4d19-88a6-3de3ef6eaa4c', */
+export async function deleteEndereco(idEndereco: string) {
+  return await EnderecoModel.destroy({ where: { idEndereco } });
+}

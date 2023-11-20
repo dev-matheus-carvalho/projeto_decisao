@@ -3,7 +3,9 @@ import { RequestExtends } from '../interfaces/RequestInterface';
 import { CustomError } from '../error/CustomError';
 import {
   buscarEndereco,
+  buscarEnderecoPorCep,
   createEndereco,
+  deleteEndereco,
   listarEnderecosDeUmCliente,
   updateDeEnderecoPrincipal,
   updateEndereco,
@@ -11,6 +13,25 @@ import {
   verificaSeExisteEnderecoPorCliente,
   verificarEnderecoPorCliente,
 } from '../services/EnderecoService';
+
+export async function listarEnderecos(
+  request: RequestExtends,
+  response: Response,
+) {
+  try {
+    const { id } = request.params;
+    const endereco = await verificaSeExisteEnderecoPorCliente(id);
+
+    if (endereco.length === 0) {
+      return response
+        .status(200)
+        .json('Esse cliente não possui nenhum endereço');
+    }
+    return response.status(200).json(endereco);
+  } catch (error) {
+    CustomError(response, 'Erro Interno: Erro ao listar endereços', 500);
+  }
+}
 
 export async function criarEndereco(
   request: RequestExtends,
@@ -233,6 +254,67 @@ export async function atualizarEndereco(
   }
 }
 
+export async function exluirEndereco(
+  request: RequestExtends,
+  response: Response,
+) {
+  try {
+    const { id } = request.params;
+
+    // 1º Passo: Verifique se o endereço existe
+    const endereco = await buscarEndereco(id);
+
+    // 2º Passo: Se o endereço não existir, retorne uma mensagem avisando isso
+    if (endereco === null)
+      return response.status(400).json('Endereço não encontrado');
+
+    // 3º Passo: Verifique a quantidade de endereços por cliente.
+    // Se houver apenas um endereço cadastrado por cliente, não se permite a exclusão
+    const qtd_enderecos_por_cliente = await verificaSeExisteEnderecoPorCliente(
+      endereco.idCliente,
+    );
+
+    if (
+      qtd_enderecos_por_cliente.length === 0 ||
+      qtd_enderecos_por_cliente.length === 1
+    ) {
+      return response
+        .status(400)
+        .json('Acesso Negado: Cliente só tem esse endereço no sistema');
+    }
+
+    // 5º Passo: Verifique se o endereço é o principal
+    const endereco_e_principal = endereco.is_principal;
+
+    // Se o endereço não for o principal, apenas o exclua
+    if (endereco_e_principal === false) {
+      await deleteEndereco(id);
+      return response.status(200).json('Endereço deletado com sucesso');
+    }
+
+    // 6º Passo: Verifique qual o endereço mais antigo
+    const endereco_mais_antigo = await EnderecoMaisAntigo(
+      endereco.idCliente,
+      id,
+    );
+
+    const cliente = await buscarEnderecoPorCep(endereco_mais_antigo);
+
+    // 7º Passo: Desmarque o endereço que quero excluir como o principal
+    await desmarcaEnderecoPrincipal(endereco.idCliente);
+
+    // 8º Passo: Marque o endereço mais antigo como o principal
+    await marcarComoPrincipal(cliente.idCliente, endereco_mais_antigo);
+
+    // 9º Passo: Exclua o endereço
+    await deleteEndereco(id);
+    return response.status(200).json('Endereço deletado com sucesso');
+  } catch (error) {
+    console.log(error);
+    CustomError(response, 'Erro Interno: Erro ao excluir endereço', 500);
+  }
+}
+
 async function EnderecoMaisAntigo(idCliente: string, idEndereco: string) {
   try {
     const pegaEndereco: any =
@@ -248,6 +330,7 @@ async function EnderecoMaisAntigo(idCliente: string, idEndereco: string) {
     meuArray.sort();
 
     const tamanho = meuArray.length;
+    console.log(meuArray);
 
     return meuArray[tamanho - 1];
   } catch (error) {
