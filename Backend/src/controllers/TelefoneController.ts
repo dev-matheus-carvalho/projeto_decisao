@@ -93,7 +93,7 @@ export async function atualizarTelefone(
 
     if (qtd_enderecos.length === 0 || qtd_enderecos.length === 1) {
       await updateTelefone(id, numero, 'true', idCliente);
-      return response.status(200).json('Endereço atualizado com sucesso');
+      return response.status(200).json('Telefone atualizado com sucesso');
     }
 
     // 1º Passo: Procure o telefone passado
