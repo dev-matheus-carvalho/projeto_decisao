@@ -1,8 +1,16 @@
 <div>
-  <div class="header"><app-header></app-header></div>
+  <div class="header" *ngIf="show"><app-header></app-header></div>
 
-  <div class="menu"><app-menu></app-menu></div>
+  <!-- <div class="menu"><app-menu></app-menu></div> -->
+  <div class="painel">
 
-  <div class="footer"><app-footer></app-footer></div>
+    <div class="menu" *ngIf="show"><app-menu></app-menu></div>
+
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+  <div class="footer" *ngIf="show"><app-footer></app-footer></div>
 </div>
-<router-outlet></router-outlet>
