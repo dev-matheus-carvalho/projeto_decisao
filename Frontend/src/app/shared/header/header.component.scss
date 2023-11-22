@@ -12,7 +12,7 @@
 
 .imagem {
   background-color: #0D6CF2;
-  margin-right: 1218px;
+  margin-right: 1215px;
   padding-top: 10px;
   // width: 1000px;
   height: 60px;
@@ -23,4 +23,28 @@
 img {
   padding-left: 12px;
   padding-right: 12px;
+}
+
+.perfil {
+  background-color: #f1f1f1;
+  display: flex;
+  margin-top: 2px;
+  padding: 0px 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 500px;
+}
+
+.letras {
+  // background-color: #0D6CF2;
+  font-size: 14px;
+  margin-top: 1px;
+  margin-bottom: 9px;
+  padding-top: 8px;
+  border-radius: 500px;
+}
+
+a {
+  color: #084191;
+  text-decoration: none;
 }

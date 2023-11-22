@@ -35,6 +35,9 @@ export class LoginComponent {
 
         console.log(resultadoLogin);
 
+        localStorage.setItem('token', resultadoLogin.token);
+        localStorage.setItem('nome', resultadoLogin.usuario.nome);
+
         this.route.navigate(['/']);
 
       } catch (error: any) {
