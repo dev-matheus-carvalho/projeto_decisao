@@ -18,15 +18,15 @@
   <div class="nome">
     <label for="validationServer01" class="form-label">Nome *</label>
     <input type="text" class="form-control {{ eValidoNome }}" id="validationServer01" placeholder="Insira seu nome" required
-    [(ngModel)]="nome">
+    [(ngModel)]="nome" (keyup)="onKeyUp()">
     <p class="aviso">{{ msg }}</p>
     <p class="aviso">{{ msgNome }}</p>
   </div>
 
   <div class="email">
     <label for="validationServer02" class="form-label">E-mail *</label>
-    <input type="text" class="form-control {{ eValidoEmail }}" id="validationServer02" placeholder="Insira seu e-mail" required
-    [(ngModel)]="email">
+    <input type="email" class="form-control {{ eValidoEmail }}" id="validationServer02" placeholder="Insira seu e-mail" required
+    [(ngModel)]="email" (keyup)="onKeyUp()">
     <p class="aviso">{{ msg }}</p>
     <p class="aviso">{{ msgEmail }}</p>
   </div>
@@ -34,7 +34,7 @@
   <div class="senha">
     <label for="validationServer03" class="form-label">Senha *</label>
     <input type="password" class="form-control {{ eValidoSenha }}" id="validationServer03" placeholder="Insira a nova senha" required
-    [(ngModel)]="senha">
+    [(ngModel)]="senha" (keyup)="onKeyUp()">
     <p class="aviso">{{ msg }}</p>
     <p class="aviso">{{ msgSenha }}</p>
   </div>
@@ -42,7 +42,7 @@
   <div class="repetirsenha">
     <label for="validationServer04" class="form-label">Confirmar senha *</label>
     <input type="password" class="form-control {{ eValidoRepetirSenha }}" id="validationServer04" placeholder="Repita a senha inserida" required
-    [(ngModel)]="repetirSenha">
+    [(ngModel)]="repetirSenha" (keyup)="onKeyUp()">
     <p class="aviso">{{ msg }}</p>
     <p class="aviso">{{ msgRepetirSenha }}</p>
   </div>
@@ -50,7 +50,8 @@
 </div>
 
 <div class="cadastrar">
-  <button type="button" class="btn btn-light" (click)="mostrar()">Criar conta</button>
+  <button type="button" class="btn btn-{{ cor }} {{ estadoBotao }}"
+  (click)="registrar()">Criar conta</button>
 </div>
 
 <div class="campos">
@@ -58,7 +59,5 @@
 </div>
 
 <div class="login">
-  <p class="fazerLogin">Já possui cadastro? <a href="">Faça Login</a></p>
+  <p class="fazerLogin">Já possui cadastro? <a routerLink="/login">Faça Login</a></p>
 </div>
-
-<p>{{nome}}</p>
