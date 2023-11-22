@@ -80,7 +80,7 @@ export async function criarUsuario(
       return response.status(200).json('Usuário criado com sucesso!');
     } else {
       return response
-        .status(409)
+        .status(400)
         .json('Este usuário já está cadastrado no sistema!');
     }
   } catch (error) {
