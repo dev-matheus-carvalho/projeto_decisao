@@ -16,7 +16,8 @@ export class LoginComponent {
 
   eValidoEmail: string = '';
   eValidoSenha: string = '';
-  a: string = '';
+
+  lembrar = false;
 
   constructor (
     private loginService: LoginService,
@@ -25,7 +26,7 @@ export class LoginComponent {
 
     async login() {
       try {
-        const resultadoLogin = await this.loginService.fazerLogin(this.email, this.senha);
+        const resultadoLogin = await this.loginService.fazerLogin(this.email, this.senha, this.lembrar);
 
         this.msgEmail = '';
         this.msgSenha = '';
@@ -66,5 +67,9 @@ export class LoginComponent {
           }, 5000);
         }
       }
+    }
+
+    teste() {
+      console.log(this.lembrar)
     }
 }

@@ -27,8 +27,17 @@ export class AppComponent implements OnInit{
   }
 
   fecharJanela() {
-    this.show = false;
-    this.showMsgSair = false;
+    console.log(this.loginService.lembrar);
+
+    if(this.loginService.lembrar === true) {
+      this.show = false;
+      this.showMsgSair = false;
+    } else {
+      this.show = false;
+      this.showMsgSair = false;
+      localStorage.setItem('token', '');
+      localStorage.setItem('nome', '');
+    }
   }
 
   fecharJanelaPrincipal() {
