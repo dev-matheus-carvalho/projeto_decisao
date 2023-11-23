@@ -1,3 +1,8 @@
+// .tudo {
+//   // opacity: 0.5;
+//   // text-shadow: 0 0 5px #000000;
+// }
+
 .painel {
   display: flex;
 }
@@ -8,4 +13,76 @@
 
 .opcoes {
   color: antiquewhite;
+}
+
+.sairSistema {
+  background-color: #2F3337;
+  width: 500px;
+  height: 188px;
+  margin-top: 190px;
+  margin-left: 305px;
+  padding-top: 0;
+  border-radius: 8px;
+}
+
+.sairCabecalho, .msgSair {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  display: flex;
+  color: antiquewhite;
+}
+
+.titulo {
+  margin-top: 16px;
+  margin-left: 16px;
+  padding-bottom: 0;
+  margin-bottom: 12px;
+}
+
+.fechar {
+  // background-color: blue;
+  margin-top: 12px;
+  padding-top: 0;
+  margin-left: 308px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.icone {
+  margin-top: 8px;
+}
+
+.hr1 {
+  color: #CED4DA;
+  opacity: 0.2;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.msgSair {
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-bottom: 16px;
+  padding-top: 0;
+}
+
+.comandos {
+  // background-color: chartreuse;
+  margin-top: 20px;
+  margin-left: 325px;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.cancelar {
+  // background-color: blue;
+  color: white;
+  margin-right: 16px;
+}
+
+.btn-sair {
+  margin-top: -3px;
+  margin-right: 0;
 }

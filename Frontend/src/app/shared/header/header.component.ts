@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from 'src/app/services/header/header.service';
 import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
@@ -12,7 +13,10 @@ export class HeaderComponent implements OnInit{
   show: boolean = false;
   posicaoImagem: boolean = true;
 
-  constructor(private loginService: LoginService) {}
+  constructor(
+    private loginService: LoginService,
+    private headerService: HeaderService
+    ) {}
 
   ngOnInit(): void {
       const nome = localStorage.getItem('nome');
@@ -40,5 +44,11 @@ export class HeaderComponent implements OnInit{
     this.show = false;
     this.posicaoImagem = true;
     this.loginService.ocultarMenu();
+  }
+
+  msgSaida() {
+    this.headerService.mostrarMsgSaida();
+    this.show = false;
+    this.posicaoImagem = true
   }
 }
