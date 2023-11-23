@@ -8,7 +8,7 @@ import { HeaderService } from './services/header/header.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  show: boolean = true;
+  show: boolean = false;
   showMsgSair: boolean = false;
 
   constructor(
