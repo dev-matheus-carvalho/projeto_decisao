@@ -24,4 +24,8 @@ export class LoginService {
     });
   }
 
+  ocultarMenu() {
+    this.mostrarMenu.emit(false);
+  }
+
 }

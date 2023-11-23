@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit{
   primeiraLetra!: string | undefined;
   ultimaLetra!: string | undefined;
+  show: boolean = false;
+  posicaoImagem: boolean = true;
+
+  constructor(private loginService: LoginService) {}
 
   ngOnInit(): void {
       const nome = localStorage.getItem('nome');
@@ -22,5 +27,18 @@ export class HeaderComponent implements OnInit{
         console.log(`As letras são: ${this.primeiraLetra} ${this.ultimaLetra}`)
       }
       console.log(nome?.charAt(0))
+  }
+
+  mostrarTela() {
+    console.log('Mostrar tela')
+    this.show = !this.show;
+    this.posicaoImagem = !this.posicaoImagem;
+  }
+
+  tirarTela() {
+    console.log('Tirar tela')
+    this.show = false;
+    this.posicaoImagem = true;
+    this.loginService.ocultarMenu();
   }
 }

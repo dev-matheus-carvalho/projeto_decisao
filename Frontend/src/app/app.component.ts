@@ -7,7 +7,7 @@ import { LoginService } from './services/login/login.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  show: boolean = true;
+  show: boolean = false;
 
   constructor(private loginService: LoginService) {}
 
