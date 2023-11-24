@@ -6,11 +6,14 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth-guards.guard';
 
 const routes: Routes = [
-  {path: '', loadChildren: () => import('./components/bemvindo/bemvindo.module')
-  .then(m => m.BemVindoModule), canActivate: [AuthGuard]},
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
 
-  {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent},
+  { path: '', loadChildren: () => import('./components/bemvindo/bemvindo.module')
+  .then(m => m.BemVindoModule), canActivate: [ AuthGuard ] },
+
+  { path: 'clientes', loadChildren: () => import('./components/clientes/clientes.module')
+  .then(m => m.ClientesModule), canActivate: [ AuthGuard ] },
 ];
 
 @NgModule({
