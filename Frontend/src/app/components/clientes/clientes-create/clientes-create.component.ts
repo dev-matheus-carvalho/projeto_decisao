@@ -15,7 +15,15 @@ export class ClientesCreateComponent {
 
   status: string = 'Ativo';
 
-  cor: string = 'ativo'
+  cor: string = 'ativo';
+
+  cadastro: string = 'selecionar';
+  localizacao: string = '';
+  representantes: string = '';
+
+  cadastro_ativo: string = 'link-ativo';
+  localizacao_ativo: string = 'link';
+  representantes_ativo: string = 'link';
 
   seta() {
     this.upDown = !this.upDown;
@@ -39,6 +47,36 @@ export class ClientesCreateComponent {
     this.upDown = false;
     this.cor = 'negativo';
     console.log(this.status)
+  }
+
+  menuCadastroSelecionado() {
+    this.cadastro = 'selecionar';
+    this.localizacao = '';
+    this.representantes = '';
+
+    this.cadastro_ativo = 'link-ativo';
+    this.localizacao_ativo = 'link';
+    this.representantes_ativo = 'link';
+  }
+
+  menuLocalizacaoSelecionado() {
+    this.cadastro = '';
+    this.localizacao = 'selecionar';
+    this.representantes = '';
+
+    this.cadastro_ativo = 'link';
+    this.localizacao_ativo = 'link-ativo';
+    this.representantes_ativo = 'link';
+  }
+
+  menuRepresentantesSelecionado() {
+    this.cadastro = '';
+    this.localizacao = '';
+    this.representantes = 'selecionar';
+
+    this.cadastro_ativo = 'link';
+    this.localizacao_ativo = 'link';
+    this.representantes_ativo = 'link-ativo';
   }
 
 }

@@ -1,3 +1,12 @@
+p {
+  color: white;
+}
+
+.menu-primeiro {
+  display: flex;
+  margin-left: 0;
+}
+
 .cabecalho {
   color: white;
   margin: 20px 0 0 20px;
@@ -17,7 +26,7 @@ hr {
   margin-top: 20px;
   margin-left: 8px;
   // width: 885px;
-  width: 600px;
+  width: 450px;
 }
 
 .campos {
@@ -40,7 +49,7 @@ hr {
 
 .dropdown {
   margin-left: 8px;
-  width: 183px;
+  width: 163px;
   height: 36px;
 
   color: white;
@@ -88,3 +97,40 @@ ul {
   margin-left: 8px;
   border-radius: 8px;
 }
+
+.menu-cadastro {
+  display: flex;
+  margin-left: 10px;
+}
+
+.linha {
+  color: white;
+  height: 1000px;
+  margin-right: 0;
+}
+
+.opcoes-rotas {
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+.selecionar {
+  border-left: solid 5px #0D6CF2;
+}
+
+.link {
+  margin-left: 45px;
+}
+
+.link-ativo {
+  margin-left: 40px;
+  color: #0D6CF2;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: #6C757D;
+}
+
