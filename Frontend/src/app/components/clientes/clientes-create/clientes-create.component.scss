@@ -1,3 +1,90 @@
-p {
+.cabecalho {
   color: white;
+  margin: 20px 0 0 20px;
+}
+
+.container-cadastral {
+  display: flex;
+}
+
+.titulo {
+  color: white;
+  margin-left: 20px;
+}
+
+hr {
+  color: beige;
+  margin-top: 20px;
+  margin-left: 8px;
+  // width: 885px;
+  width: 600px;
+}
+
+.campos {
+  color: #6C757D;
+  margin-top: 7px;
+  display: flex;
+}
+
+.estrela {
+  margin-top: 5px;
+  margin-left: 4px;
+  margin-right: 2px;
+  height: 14px;
+  width: 12px;
+}
+
+.mensagem {
+  padding-top: 0px;
+}
+
+.dropdown {
+  margin-left: 8px;
+  width: 183px;
+  height: 36px;
+
+  color: white;
+}
+
+.opcoes-status {
+  background-color: blue;
+  width: 183px;
+  height: 36px;
+  color: white;
+}
+
+.opcoes {
+  color: white;
+}
+
+.ativo {
+  background-color: #5DC02B;
+  color: white;
+}
+
+.inativo {
+  background-color: #FFB31A;
+  color: white;
+}
+
+.negativo {
+  background-color: #EE2D3D;
+  color: white;
+}
+
+ul {
+  background-color: #6C757D;
+}
+
+.fundo {
+  background-color: #6C757D;
+  color: white;
+}
+
+.fundo:hover {
+  background-color: #212529;
+  color: blue;
+  width: 90%;
+  margin-left: 8px;
+  border-radius: 8px;
 }

@@ -1,1 +1,82 @@
-<p>clientes-create works!</p>
+<div>
+  <div class="cabecalho">
+    <p><a href="#">Cliente</a> / <span>Adicionar cliente</span></p>
+  </div>
+
+  <div class="container-cadastral">
+    <h3 class="titulo">Dados cadastrais</h3>
+
+    <hr>
+
+    <p class="campos">
+      <img class="estrela" src="../../../../assets/estrela.png" alt="">
+      <span class="mensagem">Campos obrigatórios</span>
+    </p>
+
+
+
+
+  <!-- <div class="opcoes-status">
+    <div opcoes>
+      <p>Ativo</p>
+      <p>Inativo</p>
+      <p>Negativo</p>
+    </div>
+  </div> -->
+
+
+  <!-- <div class="dropdown">
+    <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+  </div> -->
+
+
+  <div class="dropdown">
+    <button class="{{ cor }} btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+    (click)="seta()">
+    Situação: {{ status }}
+      <span *ngIf="!upDown">
+        <img src="../../../../assets/down.png" alt="">
+      </span>
+
+      <span *ngIf="upDown">
+        <img src="../../../../assets/up.png" alt="">
+      </span>
+    </button>
+
+    <ul class="dropdown-menu">
+
+      <li>
+        <button class="fundo dropdown-item" type="button"
+        (click)="statusAtivo()">
+        {{ ativo }}</button></li>
+
+      <li><button class="fundo dropdown-item" type="button"
+        (click)="statusInativo()">{{ inativo }}</button></li>
+
+      <li><button class="fundo dropdown-item" type="button"
+        (click)="statusNegativo()">{{ negativo }}</button></li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
