@@ -6,12 +6,14 @@ import { ClientesComponent } from './clientes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClientesReadComponent } from './clientes-read/clientes-read.component';
+import { ClientesCreateComponent } from './clientes-create/clientes-create.component';
 
 
 @NgModule({
   declarations: [
     ClientesComponent,
-    ClientesReadComponent
+    ClientesReadComponent,
+    ClientesCreateComponent
   ],
   imports: [
     CommonModule,

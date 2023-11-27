@@ -8,10 +8,16 @@ import { Router } from '@angular/router';
 })
 export class ClientesComponent implements OnInit {
 
+  cabecalho: boolean = true;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-      // this.router.navigate(['clientes/listar'])
+      // this.cabecalho = false;
+  }
+
+  async criarCliente() {
+    this.cabecalho = false;
   }
 
 }
