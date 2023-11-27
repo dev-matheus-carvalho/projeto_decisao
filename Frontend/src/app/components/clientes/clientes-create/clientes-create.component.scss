@@ -107,7 +107,7 @@ ul {
 .linha {
   color: white;
   height: 766px;
-  margin-right: 0;
+  margin-right: 0px;
 }
 
 .opcoes-rotas {
@@ -144,5 +144,13 @@ a {
   margin-right: 8px;
 }
 
+.btn {
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+
+.menu-secundo {
+  margin-left: 12px;
+}
 
 

@@ -6,7 +6,7 @@ export interface Cliente {
   nome_mae: string,
   inscricao_municipal: string,
   inscricao_estadual: string,
-  data_criacao: Date,
+  data_criacao: string,
   autor: string,
   situacao: string,
   idUsuario: string,
