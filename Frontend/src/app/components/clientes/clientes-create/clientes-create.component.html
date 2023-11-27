@@ -1,9 +1,4 @@
-<!-- <div class="mensagem-sucedida alert alert-light" role="alert">
-  A simple light alert—check it out!
-</div> -->
-
 <div class="menu-primeiro">
-
 
   <div class="menu-secundario">
     <div class="cabecalho">
@@ -51,6 +46,9 @@
     </div>
 
     </div>
+
+    <router-outlet></router-outlet>
+
   </div>
 
   <div class="menu-secundo">
@@ -60,13 +58,12 @@
       </div>
 
       <div class="opcoes-rotas">
-        <p class="{{ cadastro }}"><a class="{{ cadastro_ativo }}" routerLink="criar" (click)="menuCadastroSelecionado()">Dados cadastrais</a></p>
-        <p class="{{ localizacao }}"><a class="{{ localizacao_ativo }}" routerLink="criar" (click)="menuLocalizacaoSelecionado()">Localização</a></p>
-        <p class="{{ representantes }}"><a class="{{ representantes_ativo }}" routerLink="criar" (click)="menuRepresentantesSelecionado()">Representantes</a></p>
+        <p class="{{ cadastro }}"><a class="{{ cadastro_ativo }}" routerLink="formulario" (click)="menuCadastroSelecionado()">Dados cadastrais</a></p>
+        <p class="{{ localizacao }}"><a class="{{ localizacao_ativo }}" routerLink="localizacao" (click)="menuLocalizacaoSelecionado()">Localização</a></p>
+        <p class="{{ representantes }}"><a class="{{ representantes_ativo }}" routerLink="representantes" (click)="menuRepresentantesSelecionado()">Representantes</a></p>
       </div>
     </div>
   </div>
 
-  <router-outlet></router-outlet>
-
 </div>
+

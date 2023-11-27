@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clientes-create',
   templateUrl: './clientes-create.component.html',
   styleUrls: ['./clientes-create.component.scss']
 })
-export class ClientesCreateComponent {
+export class ClientesCreateComponent implements OnInit {
 
   upDown: boolean = false;
 
@@ -24,6 +25,12 @@ export class ClientesCreateComponent {
   cadastro_ativo: string = 'link-ativo';
   localizacao_ativo: string = 'link';
   representantes_ativo: string = 'link';
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+      this.router.navigate(['clientes/criar/formulario']);
+  }
 
   seta() {
     this.upDown = !this.upDown;
