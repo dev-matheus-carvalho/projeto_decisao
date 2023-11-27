@@ -1,3 +1,28 @@
-p {
+p, label {
   color: white;
+}
+
+.formulario-um {
+  margin-top: 0;
+  margin-left: 20px;
+  display: flex;
+}
+
+.formulario-dois, .formulario-tres {
+  display: flex;
+  margin-left: 20px;
+}
+
+.estrela-um {
+  margin-top: -2px;
+  margin-left: 5px;
+}
+
+.data {
+  margin-left: 20px;
+}
+
+.input-nome, .input-nome-fantasia, .input-municipio, .input-estado {
+  margin-right: 200px;
+  width: 95%;
 }
