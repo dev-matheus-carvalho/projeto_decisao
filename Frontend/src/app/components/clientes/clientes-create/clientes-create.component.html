@@ -17,7 +17,7 @@
       </p>
 
 
-    <div class="dropdown">
+    <div class="dropdown" *ngIf="showStatus">
       <button class="{{ cor }} btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
       (click)="seta()">
       Situação: {{ status }}
@@ -49,10 +49,10 @@
 
     <router-outlet></router-outlet>
 
-    <div class="botoes">
+    <!-- <div class="botoes">
       <button type="button" class="cancelar btn btn-light">Cancelar</button>
       <button type="button" class="slavar btn btn-primary">Salvar cliente</button>
-    </div>
+    </div> -->
 
   </div>
 

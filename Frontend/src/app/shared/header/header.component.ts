@@ -28,9 +28,7 @@ export class HeaderComponent implements OnInit{
 
         this.primeiraLetra = nome?.charAt(0);
         this.ultimaLetra = ultimaLetra;
-        console.log(`As letras são: ${this.primeiraLetra} ${this.ultimaLetra}`)
       }
-      console.log(nome?.charAt(0))
   }
 
   mostrarTela() {

@@ -38,6 +38,7 @@ export class LoginComponent {
 
         localStorage.setItem('token', resultadoLogin.token);
         localStorage.setItem('nome', resultadoLogin.usuario.nome);
+        localStorage.setItem('idUsuario', resultadoLogin.usuario.idUsuario);
 
         this.route.navigate(['/']);
 

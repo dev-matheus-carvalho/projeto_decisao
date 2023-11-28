@@ -95,7 +95,7 @@ export async function criarCliente(
     if (verificaCliente === false)
       return response.status(400).json('Cliente já está cadastrado no sistema');
 
-    await createCliente(
+    const novoCliente = await createCliente(
       nome,
       identificacao,
       nome_fantasia,
@@ -112,6 +112,7 @@ export async function criarCliente(
     const data = {
       usuario: usuario.nome,
       isCpf,
+      idCliente: novoCliente.idCliente,
       msg: 'Usuário, cadastrado com sucesso',
     };
 

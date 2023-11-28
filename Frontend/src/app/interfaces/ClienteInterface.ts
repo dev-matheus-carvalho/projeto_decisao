@@ -19,3 +19,21 @@ export interface GetClientesInterface {
   clientes: Array<Cliente>
 }
 
+export interface CreateCliente {
+  nome: string,
+  identificacao: string,
+  nome_fantasia?: string,
+  nome_mae?: string,
+  inscricao_municipal?: string,
+  inscricao_estadual?: string,
+  situacao?: string,
+  idUsuario: string
+}
+
+export interface MsgCreateClientesInterface {
+  usuario: string,
+  isCpf: boolean,
+  idCliente: string,
+  msg: string,
+}
+

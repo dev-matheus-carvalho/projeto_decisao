@@ -37,6 +37,7 @@ export class AppComponent implements OnInit{
       this.showMsgSair = false;
       localStorage.setItem('token', '');
       localStorage.setItem('nome', '');
+      localStorage.setItem('idUsuario', '');
     }
   }
 

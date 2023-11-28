@@ -26,6 +26,8 @@ export class ClientesCreateComponent implements OnInit {
   localizacao_ativo: string = 'link';
   representantes_ativo: string = 'link';
 
+  showStatus: boolean = false;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {

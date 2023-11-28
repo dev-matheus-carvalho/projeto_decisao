@@ -6,10 +6,12 @@
       <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
     </label>
 
-    <input type="text" class="input-cpf-cnpj form-control" id="formGroupExampleInput" placeholder="00.000.000/0000-00">
+    <input type="text" class="input-cpf-cnpj form-control" placeholder="00.000.000/0000-00"
+    [(ngModel)]="identificacao" disabled="{{desabilatar}}">
+    <p class="msgAviso" *ngIf="showMsgValidacao">{{ msgAviso }}</p>
   </div>
 
-  <div class="mb-3 data">
+  <div class="mb-3 data" *ngIf="showDataCriacao">
     <label for="formGroupExampleInput" class="form-label">Data de cadastro</label>
     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="27/11/2023" disabled>
   </div>
@@ -26,12 +28,14 @@
       <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
     </label>
 
-    <input type="text" class="input-nome form-control" id="formGroupExampleInput" placeholder="Insira o nome do cliente">
+    <input type="text" class="input-nome form-control" id="formGroupExampleInput" placeholder="Insira o nome do cliente"
+    [(ngModel)]="nome">
+    <p class="msgAviso" *ngIf="showMsgValidacaoNome">{{ msgAvisoNome }}</p>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3" *ngIf="showNomeIdentificacao">
     <label for="formGroupExampleInput" class="form-label">
-      <span class="cpf-cnpj">Nome fantasia</span>
+      <span class="cpf-cnpj">{{ msgInputIdentificacao }}</span>
       <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
     </label>
 
@@ -42,7 +46,7 @@
 
 <div class="formulario-tres">
 
-  <div class="mb-3">
+  <div class="mb-3" *ngIf="showInscricaoMunicipal">
     <label for="formGroupExampleInput" class="form-label">
       <span class="cpf-cnpj">Inscrição Municipal</span>
       <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
@@ -51,7 +55,7 @@
     <input type="text" class="input-municipio form-control" id="formGroupExampleInput">
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3" *ngIf="showInscricaoEstadual">
     <label for="formGroupExampleInput" class="form-label">
       <span class="cpf-cnpj">Inscrição Estadual</span>
       <img class="estrela-um" src="../../../../../assets/estrela.png" alt="estrela">
@@ -60,5 +64,10 @@
     <input type="text" class="input-estado form-control" id="formGroupExampleInput">
   </div>
 
+</div>
+
+<div class="botoes">
+  <button type="button" class="cancelar btn btn-light" (click)="cancelar()">Cancelar</button>
+  <button type="button" class="salvar btn btn-primary" (click)="criarCliente()">Salvar cliente</button>
 </div>
 
