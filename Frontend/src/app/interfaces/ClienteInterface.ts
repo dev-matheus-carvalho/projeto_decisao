@@ -37,3 +37,17 @@ export interface MsgCreateClientesInterface {
   msg: string,
 }
 
+export interface UpdateCliente {
+  nome: string,
+  nome_fantasia?: string,
+  nome_mae?: string,
+  inscricao_municipal?: string,
+  inscricao_estadual?: string,
+  situacao?: string,
+  idUsuario: string
+}
+
+export interface MsgUpdateClientesInterface {
+  usuario: string,
+  msg: string,
+}

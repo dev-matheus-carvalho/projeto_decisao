@@ -1,5 +1,6 @@
 p {
   color: white;
+  margin-bottom: 0;
 }
 
 .menu-primeiro {
@@ -15,6 +16,7 @@ p {
 
 .container-cadastral {
   display: flex;
+  margin-bottom: 0;
 }
 
 .titulo {
@@ -22,11 +24,21 @@ p {
   margin-left: 20px;
 }
 
-hr {
+// Mexa aqui para o tamanho da linha
+
+.hr-inicial {
   color: beige;
   margin-top: 20px;
   margin-left: 8px;
-  // width: 885px;
+  width: 860px;
+  // width: 450px;
+}
+
+.hr-segundo {
+  color: beige;
+  margin-top: 20px;
+  margin-left: 8px;
+  // width: 860px;
   width: 450px;
 }
 
@@ -151,6 +163,10 @@ a {
 
 .menu-secundo {
   margin-left: 12px;
+}
+
+.menu-secundario {
+  margin-bottom: 0;
 }
 
 

@@ -25,6 +25,12 @@
         </td>
 
         <td *ngIf="clientes.situacao === 'Inativo'">
+          <span class="badge rounded-pill text-bg-warning">
+            {{clientes.situacao}}
+          </span>
+        </td>
+
+        <td *ngIf="clientes.situacao === 'Negativo'">
           <span class="badge rounded-pill text-bg-danger">
             {{clientes.situacao}}
           </span>

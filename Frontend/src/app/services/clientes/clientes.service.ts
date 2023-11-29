@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CreateCliente, GetClientesInterface, MsgCreateClientesInterface } from 'src/app/interfaces/ClienteInterface';
+import { CreateCliente, GetClientesInterface, MsgCreateClientesInterface, MsgUpdateClientesInterface, UpdateCliente } from 'src/app/interfaces/ClienteInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,22 @@ export class ClienteService {
       }).subscribe({
         next: value => resolve(value),
         error: error  => reject(error),
+      });
+    });
+  }
+
+  updateCliente(idCliente: string, cliente: UpdateCliente): Promise<MsgUpdateClientesInterface> {
+    return new Promise((resolve, reject) => {
+
+      const token = localStorage.getItem('token');
+
+      this.http.put<MsgUpdateClientesInterface>(`${this.baseUrl}/${ idCliente }`, cliente , {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).subscribe({
+        next: value => resolve(value),
+        error: error => reject(error),
       });
     });
   }

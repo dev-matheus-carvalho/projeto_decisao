@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClienteService } from 'src/app/services/clientes/clientes.service';
 
 @Component({
   selector: 'app-clientes-create',
@@ -28,10 +29,22 @@ export class ClientesCreateComponent implements OnInit {
 
   showStatus: boolean = false;
 
-  constructor(private router: Router) {}
+  ocultarMenuCadastro: boolean = false;
+  // valorEmitter = this.clienteService.mostrarMenuCadastro.subscribe(
+  //   value => this.ocultarMenuCadastro = value
+  // );
+
+  constructor(
+    private clienteService: ClienteService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
-      this.router.navigate(['clientes/criar/formulario']);
+    // this.clienteService.mostrarMenuCadastro.subscribe(value => {
+    //   this.ocultarMenuCadastro = value
+    // });
+    console.log('Mostrar menu cadastro: ', this.ocultarMenuCadastro)
+    this.router.navigate(['clientes/criar/formulario']);
   }
 
   seta() {

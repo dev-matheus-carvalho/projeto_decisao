@@ -7,15 +7,10 @@
 
 
     <div class="container-cadastral">
-      <h3 class="titulo">Dados cadastrais</h3>
 
-      <hr>
 
-      <p class="campos">
-        <img class="estrela" src="../../../../assets/estrela.png" alt="">
-        <span class="mensagem">Campos obrigatórios</span>
-      </p>
 
+      <!--                 Status                   -->
 
     <div class="dropdown" *ngIf="showStatus">
       <button class="{{ cor }} btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false"
@@ -56,7 +51,7 @@
 
   </div>
 
-  <div class="menu-secundo">
+  <div class="menu-secundo" *ngIf="ocultarMenuCadastro">
     <div class="menu-cadastro">
       <div class="linha d-flex">
         <div class="vr"></div>
