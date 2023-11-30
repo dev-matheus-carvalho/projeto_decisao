@@ -16,11 +16,15 @@
 }
 
 .sairSistema {
+  z-index: 100;
   background-color: #2F3337;
   width: 500px;
   height: 188px;
-  margin-top: 190px;
-  margin-left: -424px;
+  // margin-top: 190px;
+  // margin-left: -424px;
+  position: absolute;
+  top: 40%;
+  left: 35%;
   padding-top: 0;
   border-radius: 8px;
 }
@@ -48,6 +52,7 @@
   margin-left: 308px;
   margin-bottom: 0;
   padding-bottom: 0;
+  cursor: pointer;
 }
 
 .icone {
@@ -80,6 +85,7 @@
   // background-color: blue;
   color: white;
   margin-right: 16px;
+  cursor: pointer;
 }
 
 .btn-sair {
