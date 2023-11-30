@@ -44,7 +44,7 @@ export class ClientesCreateComponent implements OnInit {
     //   this.ocultarMenuCadastro = value
     // });
     console.log('Mostrar menu cadastro: ', this.ocultarMenuCadastro)
-    this.router.navigate(['clientes/criar/formulario']);
+    // this.router.navigate(['clientes/criar/formulario']);
   }
 
   seta() {

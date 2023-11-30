@@ -1,3 +1,200 @@
-p {
+h6 {
+  color: azure;
+}
+
+.global {
+  display: flex;
+}
+
+.cabecalho-formularios {
+  width: 85%;
+}
+
+.cabecalho {
+  display: flex;
+  margin-top: 0;
+  margin: 20px 0 0 20px;
   color: white;
+}
+
+hr {
+  color: beige;
+  margin-top: 20px;
+  margin-left: 8px;
+  // width: 660px;
+  width: 70%;
+}
+
+.campos {
+  color: #6C757D;
+  margin-top: 7px;
+  display: flex;
+}
+
+.estrela {
+  margin-top: 5px;
+  margin-left: 4px;
+  margin-right: 2px;
+  height: 14px;
+  width: 12px;
+}
+
+.mensagem {
+  padding-top: 0px;
+}
+
+.formularios {
+  margin-top: 20px;
+  margin-left: 20px;
+  // margin-right: 1px;
+}
+
+.endereos {
+  margin-right: 0;
+}
+
+.cabecalho-endereco {
+  color: aliceblue;
+  display: flex;
+}
+
+.titulo-enderecos {
+  color: white;
+  font-size: 16px;
+}
+
+.linha-endereco {
+  border-color: white;
+  color: white;
+  font-weight: bold;
+  margin-top: 11px;
+  width: 100%;
+  // width: 660px;
+  border-width: 3px;
+}
+
+.add-enderecos {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #0D6CF2;
+}
+
+.cards-enderecos {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  // margin-right: 20%;
+  // padding-right: 20%;
+}
+
+.card-endereco-global {
+  background-color: #2F3337;
+  width: 20%;
+  border-radius: 5%;
+  margin-right: 1%;
+}
+
+.informacoes-enderecos {
+  padding: 16px 16px 6px 14px;
+  padding-bottom: 20px;
+}
+
+.texto-endereco {
+  color: white;
+  display: flex;
+  text-align: center;
+}
+
+.endereco-principal {
+  margin-left: 20%;
+  padding-bottom: 5px;
+}
+
+.texto-endereco-principal {
+  background-color: #FFFFFF;
+  color: #0D6CF2;
+}
+
+.linha-separador-endereco {
+  margin-left: 0;
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.linha-separador-endereco-dois {
+  margin-left: 0;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.icones-enderecos {
+  display: flex;
+  padding-bottom: 20px;
+  margin-left: 40%;
+  margin-top: 9px;
+  margin-bottom: 0;
+}
+
+.icones-enderecos-dois {
+  display: flex;
+  padding-bottom: 0;
+  margin-left: 40%;
+  margin-top: 9px;
+  margin-bottom: 0;
+}
+
+.icone-editar-endereco {
+  margin-right: 14px;
+}
+
+
+
+
+
+
+.menu {
+  margin-left: 0px;
+  margin-top: -45px;
+  color: aliceblue;
+  display: flex;
+}
+
+.navegacao {
+  margin-left: 10px;
+}
+
+.linha {
+  color: white;
+  height: 766px;
+  margin-right: 0px;
+  margin-top: -1px;
+  // margin-left: 0;
+}
+
+.opcoes-rotas {
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #6C757D;
+}
+
+.selecionar {
+  border-left: solid 5px #0D6CF2;
+}
+
+.link {
+  margin-left: 35px;
+}
+
+.link-ativo {
+  margin-left: 30px;
+  color: #0D6CF2;
+  font-size: 16px;
+  font-weight: 600;
 }
