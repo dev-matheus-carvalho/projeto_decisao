@@ -23,12 +23,21 @@
         <div class="cabecalho-endereco">
           <h6 class="titulo-enderecos">Endereços</h6>
 
-          <hr class="linha-endereco">
+          <div class="linha-setas">
+            <hr class="linha-endereco">
+
+            <img class="seta-{{ sentidoSeta }}" src="../../../../../assets/{{ sentidoSeta }}.png" alt="seta-down"
+            (click)="inverterSentidoDaSeta()">
+          </div>
+
         </div>
 
         <a class="add-enderecos">+ Adicionar endereços</a>
 
-        <div class="cards-enderecos">
+        <div class="nao-mostrar-cards-enderecos" *ngIf="!showEnderecos"></div>
+
+
+        <div class="cards-enderecos" *ngIf="showEnderecos">
 
           <div class="card-endereco-global" *ngFor="let i of meuArray">
 
@@ -51,8 +60,8 @@
                 <img src="../../../../../assets/editar.png" alt="editar-endereco">
               </div>
 
-              <div>
-                <img src="../../../../../assets/deletar.png" alt="editar-endereco">
+              <div class="icone-deletar-endereco">
+                <img src="../../../../../assets/deletar.png" alt="deletar-endereco">
               </div>
 
             </div>
@@ -64,8 +73,8 @@
                 <img src="../../../../../assets/editar.png" alt="editar-endereco">
               </div>
 
-              <div>
-                <img src="../../../../../assets/deletar.png" alt="editar-endereco">
+              <div class="icone-deletar-endereco">
+                <img src="../../../../../assets/deletar.png" alt="deletar-endereco">
               </div>
 
             </div>
@@ -78,7 +87,57 @@
 
 
       <!-- ======================== Telefones ========================== -->
-      <div class="telefones"></div>
+      <div class="telefones">
+
+        <div class="cabecalho-telefone">
+          <h6 class="titulo-telefone">Telefone</h6>
+
+          <hr class="linha-telefone">
+        </div>
+
+        <div class="add-telefones-global">
+          <a class="add-telefones">+ Adicionar telefones</a>
+        </div>
+
+        <div class="cadastrar-telefone" *ngIf="showInputCadastroTelefone">
+
+          <div class="input-telefone mb-3">
+            <input type="text" class="input-cadastrar-telefone form-control" id="formGroupExampleInput" placeholder="Digite seu telefone">
+          </div>
+
+          <div class="botoes-cadastrar-telefone">
+            <button type="button" class="cancelar-telefone btn btn-light">Cancelar</button>
+            <button type="button" class="btn btn-primary">Adicionar telefone</button>
+          </div>
+
+        </div>
+
+        <div class="lista-telefones-global">
+
+          <div class="lista-telefones" *ngFor="let i of arrayTelefones">
+
+            <p>{{ i.numero }}</p>
+
+             <div class="telefone-principal-global" *ngIf="i.isPrincipal">
+              <span class="telefone-principal badge rounded-pill text-bg">Principal</span>
+             </div>
+
+            <div class="icones-telefone" *ngIf="i.isPrincipal">
+              <img class="icone-editar-telefone" src="../../../../../assets/editar.png" alt="editar-telefone">
+              <img class="icone-deletar-telefone" src="../../../../../assets/deletar.png" alt="excluir-telefone">
+            </div>
+
+            <div class="icones-telefone-dois" *ngIf="!i.isPrincipal">
+              <img class="icone-editar-telefone" src="../../../../../assets/editar.png" alt="editar-telefone">
+              <img class="icone-deletar-telefone" src="../../../../../assets/deletar.png" alt="excluir-telefone">
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div> <!-- Final telefones -->
 
       <div class="emails"></div>
 

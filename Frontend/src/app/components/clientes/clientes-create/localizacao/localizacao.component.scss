@@ -1,4 +1,4 @@
-h6 {
+h6, p {
   color: azure;
 }
 
@@ -63,14 +63,33 @@ hr {
   font-size: 16px;
 }
 
+.linha-setas {
+  width: 100%;
+  display: flex;
+}
+
 .linha-endereco {
   border-color: white;
   color: white;
   font-weight: bold;
   margin-top: 11px;
   width: 100%;
-  // width: 660px;
   border-width: 3px;
+}
+
+.seta-up {
+  cursor: pointer;
+  width: 1.6%;
+  height: 60%;
+  margin-top: 0.2%;
+  margin-left: 0.7%;
+}
+.seta-down {
+  cursor: pointer;
+  width: 1.6%;
+  height: 60%;
+  margin-top: 0.5%;
+  margin-left: 0.7%;
 }
 
 .add-enderecos {
@@ -79,12 +98,16 @@ hr {
   color: #0D6CF2;
 }
 
+.nao-mostrar-cards-enderecos{
+  width: 1120px;
+  margin-right: 100%;
+  padding-right: 100%;
+}
+
 .cards-enderecos {
   margin-top: 20px;
   width: 100%;
   display: flex;
-  // margin-right: 20%;
-  // padding-right: 20%;
 }
 
 .card-endereco-global {
@@ -148,6 +171,99 @@ hr {
 
 .icone-editar-endereco {
   margin-right: 14px;
+}
+
+.icone-editar-endereco, .icone-deletar-endereco {
+  cursor: pointer;
+}
+
+.cabecalho-telefone {
+  color: aliceblue;
+  display: flex;
+  margin-top: 2.5%;
+}
+
+.linha-telefone {
+  border-color: white;
+  color: white;
+  font-weight: bold;
+  margin-top: 11px;
+  width: 100%;
+  border-width: 3px;
+}
+
+.add-telefones-global {
+  margin-bottom: 1%;
+}
+
+.add-telefones {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #0D6CF2;
+}
+
+.cadastrar-telefone {
+  display: flex;
+}
+
+.input-telefone {
+  width: 20%;
+  margin-top: 1.4%;
+}
+
+.input-cadastrar-telefone {
+  background-color: #2F3337;
+  color: white;
+}
+
+.input-cadastrar-telefone::placeholder {
+  color: white;
+  opacity: 0.2;
+}
+
+.botoes-cadastrar-telefone {
+  margin-top: 1.4%;
+  margin-left: 20px;
+}
+
+.cancelar-telefone {
+  margin-right: 8px;
+  color: #6C757D;
+}
+
+.lista-telefones-global {
+  // background-color: #a4abb4;
+  width: 100%;
+}
+
+.lista-telefones {
+  display: flex;
+  margin: 0 0 -2px 0;
+}
+
+.telefone-principal-global {
+  margin-left: 40%;
+}
+
+.telefone-principal {
+  background-color: white;
+  color: #5DC02B;
+}
+
+.icones-telefone {
+  margin-left: 37%;
+}
+
+.icones-telefone-dois {
+  margin-left: 83%;
+}
+
+.icone-editar-telefone, .icone-deletar-telefone {
+  cursor: pointer;
+}
+
+.icone-editar-telefone {
+  margin-right: 16px;
 }
 
 
