@@ -1,4 +1,36 @@
-<div class="global">
+<div class="msgcadastrar">
+  <div class="cabecalho-msg-cadastrar">
+
+    <div class="simbolo-add-endereco">
+      <img src="../../../../../assets/simboloAdd.png" alt="simbolo-adcionar-endereco">
+    </div>
+
+    <div class="msg-novo-endereco">
+      <p>Novo endereço</p>
+    </div>
+
+    <hr class="cadastro-novo-endereco">
+
+    <div class="campos-obrigatorios-endereco">
+      <img class="estrela-cadastro" src="../../../../../assets/estrela.png" alt="estrela-campo-obrigatório">
+      <p>Campos obrigatórios</p>
+    </div>
+
+    <div class="fechar-cadastro-endereco">
+      <img class="fechar-endereco" src="../../../../../assets/fechar.png" alt="fechar-cadastro"
+      (click)="funcaoTeste()">
+    </div>
+
+    <div>
+      <p *ngIf="teste">oi</p>
+    </div>
+  </div>
+
+  <input type="text">
+
+</div>
+
+<div class="global" disabled="true">
   <div class="cabecalho-formularios">
 
     <div class="cabecalho">
@@ -32,7 +64,7 @@
 
         </div>
 
-        <a class="add-enderecos">+ Adicionar endereços</a>
+        <a class="add-enderecos">+ Adicionar endereço</a>
 
         <div class="nao-mostrar-cards-enderecos" *ngIf="!showEnderecos"></div>
 
@@ -86,17 +118,24 @@
       </div> <!-- Final enderecos -->
 
 
-      <!-- ======================== Telefones ========================== -->
+      <!-- ======================== Telefones =========================== -->
       <div class="telefones">
 
         <div class="cabecalho-telefone">
           <h6 class="titulo-telefone">Telefone</h6>
 
-          <hr class="linha-telefone">
+          <div class="linha-setas-telefone">
+            <hr class="linha-telefone">
+
+            <img class="seta-{{ sentidoSetaTelefone }}" src="../../../../../assets/{{ setaTelefoneImg }}.png" alt="seta-up-down"
+            (click)="inverterSentidoSetaTelefone()">
+
+          </div>
+
         </div>
 
         <div class="add-telefones-global">
-          <a class="add-telefones">+ Adicionar telefones</a>
+          <a class="add-telefones" (click)="adicionarTelefone()">+ Adicionar telefone</a>
         </div>
 
         <div class="cadastrar-telefone" *ngIf="showInputCadastroTelefone">
@@ -106,13 +145,13 @@
           </div>
 
           <div class="botoes-cadastrar-telefone">
-            <button type="button" class="cancelar-telefone btn btn-light">Cancelar</button>
+            <button type="button" class="cancelar-telefone btn btn-light" (click)="cancelarCadastroTelefone ()">Cancelar</button>
             <button type="button" class="btn btn-primary">Adicionar telefone</button>
           </div>
 
         </div>
 
-        <div class="lista-telefones-global">
+        <div class="lista-telefones-global" *ngIf="showTelefones">
 
           <div class="lista-telefones" *ngFor="let i of arrayTelefones">
 
@@ -139,7 +178,83 @@
 
       </div> <!-- Final telefones -->
 
-      <div class="emails"></div>
+
+      <!-- =========================== Email ============================ -->
+      <div class="emails">
+
+        <div class="cabecalho-email">
+          <h6 class="titulo-email">E-mails</h6>
+
+          <div class="linha-setas-email">
+            <hr class="linha-telefone">
+
+            <img class="seta-{{ sentidoSetaEmail }}" src="../../../../../assets/{{ setaEmailImg }}.png" alt="seta-up-down"
+            (click)="inverterSentidoSetaEmail()">
+
+          </div>
+
+        </div>
+
+        <div class="add-emails-global">
+          <a class="add-emails" (click)="adicionarEmail()">+ Adicionar e-mail</a>
+        </div>
+
+        <div class="cadastrar-email" *ngIf="showInputCadastroEmail">
+
+          <div class="input-email mb-3">
+            <input type="text" class="input-cadastrar-email form-control" id="formGroupExampleInput" placeholder="exemplo@exemplo.com.br"
+            [(ngModel)]="email" (keyup)="onKeyUpEmail()">
+          </div>
+
+          <div class="botoes-cadastrar-email">
+            <button type="button" class="cancelar-email btn btn-light" (click)="cancelarCadastroEmail ()">Cancelar</button>
+            <button type="button" class="botao-salvar-desabilitado-email btn btn disabled" *ngIf="!habilitarBotaoSalvarEmail">Adicionar e-email</button>
+            <button type="button" class="btn btn-primary" *ngIf="habilitarBotaoSalvarEmail">Adicionar e-email</button>
+          </div>
+
+        </div>
+
+        <div class="check-email-principal-global" *ngIf="showInputCadastroEmail">
+          <div class="form-check">
+            <input class="check-email-principal form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+            <label class="label-check-email form-check-label" for="defaultCheck1">
+              E-mail principal
+            </label>
+          </div>
+        </div>
+
+
+        <div class="lista-emails-global" *ngIf="showEmails">
+
+          <div class="lista-emails" *ngFor="let i of arrayEmails">
+
+            <p>{{ i.email }}</p>
+
+             <div class="email-principal-global" *ngIf="i.isPrincipal">
+              <span class="email-principal badge rounded-pill text-bg">Principal</span>
+             </div>
+
+            <div class="icones-email" *ngIf="i.isPrincipal">
+              <img class="icone-editar-email" src="../../../../../assets/editar.png" alt="editar-email">
+              <img class="icone-deletar-email" src="../../../../../assets/deletar.png" alt="excluir-email">
+            </div>
+
+            <div class="icones-email-dois" *ngIf="!i.isPrincipal">
+              <img class="icone-editar-email" src="../../../../../assets/editar.png" alt="editar-email">
+              <img class="icone-deletar-email" src="../../../../../assets/deletar.png" alt="excluir-email">
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div> <!-- Final email -->
+
+      <div class="botoes-operacoes-global">
+        <button type="button" class="cancelar-global btn btn-light">Cancelar</button>
+        <button type="button" class="salvar-global btn btn-primary">Salvar alterações</button>
+      </div>
 
     </div>
 
@@ -163,5 +278,6 @@
     </div>
 
   </div> <!-- Final menu -->
+
 
 </div> <!-- Final global -->

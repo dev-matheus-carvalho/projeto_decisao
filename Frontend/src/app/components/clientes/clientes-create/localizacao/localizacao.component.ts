@@ -21,11 +21,34 @@ export class LocalizacaoComponent {
     {numero: '(22) 2 0000-0000', isPrincipal: false},
   ];
 
+  arrayEmails = [
+    {email: 'teste1@decisaosistemas.com.br', isPrincipal: false},
+    {email: 'teste2@decisaosistemas.com.br', isPrincipal: true},
+    {email: 'teste3@decisaosistemas.com.br', isPrincipal: false},
+  ];
+
+  teste: boolean = false;
+
+  email: string = '';
+
   sentidoSeta: string = 'down';
   seta: boolean = false;
 
+  sentidoSetaTelefone: string = 'down-telefone';
+  setaTelefone: boolean = false;
+  setaTelefoneImg: string = 'down';
+
+  sentidoSetaEmail: string = 'down-email';
+  setaEmail: boolean = false;
+  setaEmailImg: string = 'down';
+  showEmails: boolean = false;
+  showInputCadastroEmail: boolean = false;
+
   showEnderecos: boolean = false;
-  showInputCadastroTelefone: boolean = true;
+  showTelefones: boolean = false;
+  showInputCadastroTelefone: boolean = false;
+
+  habilitarBotaoSalvarEmail: boolean = false;
 
   inverterSentidoDaSeta() {
     if (this.seta === false) {
@@ -37,5 +60,67 @@ export class LocalizacaoComponent {
       this.sentidoSeta = 'down';
       this.showEnderecos = false;
     }
+  }
+
+  inverterSentidoSetaTelefone() {
+    if (this.setaTelefone === false) {
+      this.setaTelefone = true;
+
+      this.setaTelefoneImg = 'up';
+      this.sentidoSetaTelefone = 'up-telefone';
+      this.showTelefones = true;
+
+    } else {
+      this.setaTelefone = false;
+
+      this.setaTelefoneImg = 'down';
+      this.sentidoSetaTelefone = 'down-telefone';
+      this.showTelefones = false;
+    }
+  }
+
+  adicionarTelefone() {
+    this.showInputCadastroTelefone = !this.showInputCadastroTelefone;
+  }
+
+  cancelarCadastroTelefone () {
+    this.showInputCadastroTelefone = false;
+  }
+
+  inverterSentidoSetaEmail() {
+    if (this.setaEmail === false) {
+      this.setaEmail = true;
+
+      this.setaEmailImg = 'up';
+      this.sentidoSetaEmail = 'up-telefone';
+      this.showEmails = true;
+
+    } else {
+      this.setaEmail = false;
+
+      this.setaEmailImg = 'down';
+      this.sentidoSetaEmail = 'down-telefone';
+      this.showEmails = false;
+    }
+  }
+
+  onKeyUpEmail() {
+    if (this.email === '' || this.email === null || this.email === undefined) {
+      this.habilitarBotaoSalvarEmail = false;
+    } else {
+      this.habilitarBotaoSalvarEmail = true;
+    }
+  }
+
+  adicionarEmail() {
+    this.showInputCadastroEmail = !this.showInputCadastroEmail;
+  }
+
+  cancelarCadastroEmail () {
+    this.showInputCadastroEmail = false;
+  }
+
+  funcaoTeste() {
+    this.teste = !this.teste;
   }
 }

@@ -1,13 +1,82 @@
+// Mensagem Cadastrar
+.msgcadastrar {
+  background-color: #2F3337;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  z-index: 100;
+  top: 25%;
+  left: 20%;
+  opacity: 1;
+}
+
+.cabecalho-msg-cadastrar {
+  display: flex;
+}
+
+.simbolo-add-endereco {
+  background-color: #0D6CF2;
+  border-radius: 100%;
+  width: 6%;
+  height: 37px;
+  margin-top: 20px;
+  margin-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simbolo-add-endereco img {
+  background-color: #2F3337;
+  border-radius: 50%;
+  width: 83%;
+  padding: 8%;
+}
+
+.msg-novo-endereco {
+  margin-top: 4%;
+  margin-left: 1px;
+  margin-right: 20px;
+  font-size: 16px;
+
+}
+
+.cadastro-novo-endereco {
+  margin-top: 6.2%;
+  width: 50%;
+}
+
+.campos-obrigatorios-endereco {
+  margin-top: 4%;
+  display: flex;
+}
+
+.estrela-cadastro {
+  width: 7%;
+  height: 12px;
+  margin: 8px 8px 0 16px;
+}
+
+.fechar-cadastro-endereco {
+  margin: 3.8% 0 0 0;
+}
+
+.fechar-endereco {
+  cursor: pointer;
+}
+
+//================================ Menu global =============================
 h6, p {
   color: azure;
 }
 
 .global {
   display: flex;
+  opacity: 0.05;
 }
 
 .cabecalho-formularios {
-  width: 85%;
+  width: 83.3%;
 }
 
 .cabecalho {
@@ -22,7 +91,7 @@ hr {
   margin-top: 20px;
   margin-left: 8px;
   // width: 660px;
-  width: 70%;
+  width: 69%;
 }
 
 .campos {
@@ -64,7 +133,7 @@ hr {
 }
 
 .linha-setas {
-  width: 100%;
+  width: 92%;
   display: flex;
 }
 
@@ -75,6 +144,8 @@ hr {
   margin-top: 11px;
   width: 100%;
   border-width: 3px;
+  // z-index: 100%;
+  // position: relative;
 }
 
 .seta-up {
@@ -106,7 +177,7 @@ hr {
 
 .cards-enderecos {
   margin-top: 20px;
-  width: 100%;
+  width: 98%;
   display: flex;
 }
 
@@ -181,6 +252,27 @@ hr {
   color: aliceblue;
   display: flex;
   margin-top: 2.5%;
+  width: 100%;
+}
+
+.linha-setas-telefone {
+  width: 93.4%;
+  display: flex;
+}
+
+.seta-up-telefone {
+  cursor: pointer;
+  width: 1.6%;
+  height: 60%;
+  margin-top: 0.2%;
+  margin-left: 0.7%;
+}
+.seta-down-telefone {
+  cursor: pointer;
+  width: 1.6%;
+  height: 60%;
+  margin-top: 0.5%;
+  margin-left: 0.7%;
 }
 
 .linha-telefone {
@@ -251,11 +343,11 @@ hr {
 }
 
 .icones-telefone {
-  margin-left: 37%;
+  margin-left: 36%;
 }
 
 .icones-telefone-dois {
-  margin-left: 83%;
+  margin-left: 82%;
 }
 
 .icone-editar-telefone, .icone-deletar-telefone {
@@ -266,10 +358,131 @@ hr {
   margin-right: 16px;
 }
 
+.cabecalho-email {
+  color: aliceblue;
+  display: flex;
+  margin-top: 2.5%;
+  width: 100%;
+}
+
+.linha-setas-email {
+  width: 94%;
+  display: flex;
+}
+
+.seta-up-email {
+  cursor: pointer;
+  width: 1.6%;
+  height: 60%;
+  margin-top: 0.2%;
+  margin-left: 0.7%;
+}
+
+.seta-down-email {
+  cursor: pointer;
+  width: 1.6%;
+  height: 60%;
+  margin-top: 0.5%;
+  margin-left: 0.7%;
+}
+
+.add-emails-global {
+  margin-bottom: 1%;
+}
+
+.add-emails {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #0D6CF2;
+}
+
+.cadastrar-email {
+  display: flex;
+}
+
+.input-email {
+  width: 21%;
+  margin-top: 1.4%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.input-cadastrar-email {
+  background-color: #2F3337;
+  color: white;
+}
+
+.input-cadastrar-email::placeholder {
+  color: white;
+  opacity: 0.2;
+}
+
+.botoes-cadastrar-email {
+  margin-top: 1.4%;
+  margin-left: 20px;
+}
+
+.cancelar-email {
+  margin-right: 8px;
+  color: #6C757D;
+}
+
+.botao-salvar-desabilitado-email {
+  background-color: #F5F7FA;
+  color: #CED4DA;
+}
+
+.check-email-principal-global {
+  margin-top: -8px;
+  margin-left: 2px;
+  margin-bottom: 20px;
+}
+
+.check-email-principal {
+  background-color: #2F3337;
+}
+
+.label-check-email {
+  color: #6C757D;
+}
+
+.lista-emails-global {
+  // background-color: #a4abb4;
+  width: 100%;
+}
+
+.lista-emails {
+  display: flex;
+  margin: 0 0 -2px 0;
+}
+
+.email-principal-global {
+  margin-left: 30.6%;
+}
+
+.email-principal {
+  background-color: white;
+  color: #5DC02B;
+}
+
+.icones-email {
+  margin-left: 35.8%;
+}
+
+.icones-email-dois {
+  margin-left: 72.5%;
+}
+
+.icone-editar-email, .icone-deletar-email {
+  cursor: pointer;
+}
+
+.icone-editar-email {
+  margin-right: 16px;
+}
 
 
-
-
+//================================== Menu Lateral ==========================
 
 .menu {
   margin-left: 0px;
@@ -284,10 +497,10 @@ hr {
 
 .linha {
   color: white;
-  height: 766px;
+  height: 100%;
   margin-right: 0px;
   margin-top: -1px;
-  // margin-left: 0;
+  // margin-left: -20px;
 }
 
 .opcoes-rotas {
@@ -313,4 +526,17 @@ a {
   color: #0D6CF2;
   font-size: 16px;
   font-weight: 600;
+}
+
+//=============================== Botões da Página ==========================
+
+.botoes-operacoes-global {
+  width: 30%;
+  margin: 20% 0 2% 70%;
+  padding-left: 5.1%;
+  display: flex;
+}
+
+.cancelar-global {
+  margin-right: 20px;
 }
