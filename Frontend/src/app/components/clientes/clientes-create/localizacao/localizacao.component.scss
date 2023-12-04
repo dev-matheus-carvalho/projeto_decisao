@@ -1,69 +1,87 @@
 // Mensagem Cadastrar
 .msgcadastrar {
-  background-color: #2F3337;
-  width: 50%;
-  height: 50%;
+  background-color: #212529;
+  width: 60%;
+  height: 70%;
   position: absolute;
   z-index: 100;
-  top: 25%;
+  top: 20%;
   left: 20%;
   opacity: 1;
+  border-radius: 8px;
 }
 
 .cabecalho-msg-cadastrar {
   display: flex;
 }
 
-.simbolo-add-endereco {
-  background-color: #0D6CF2;
-  border-radius: 100%;
-  width: 6%;
-  height: 37px;
-  margin-top: 20px;
-  margin-left: 16px;
-  display: flex;
-  justify-content: center;
+.imagemAdicionar {
+  margin: 3% 0 0 3%;
   align-items: center;
 }
 
-.simbolo-add-endereco img {
-  background-color: #2F3337;
+.circulo {
+  background-color: #0D6CF2;
+  border-radius: 100%;
+  padding: 100%;
+  display: block;
+}
+
+.simbolo-add {
+  background-color: #212529;
+  padding: 35%;
   border-radius: 50%;
-  width: 83%;
-  padding: 8%;
+  margin-left: 15%;
+  margin-top: -340%;
 }
 
-.msg-novo-endereco {
+.msg-de-cadastro {
   margin-top: 4%;
-  margin-left: 1px;
-  margin-right: 20px;
-  font-size: 16px;
-
+  margin-left: 4%;
 }
 
-.cadastro-novo-endereco {
-  margin-top: 6.2%;
-  width: 50%;
+.linha-do-cadastro {
+  width: 42%;
+  margin-top: 3.3%;
+  margin-right: 0;
 }
 
-.campos-obrigatorios-endereco {
-  margin-top: 4%;
+.linha-cadastro {
+  width: 100%;
+}
+
+.campo-obrigatorio-cadastro {
+  width: 20%;
   display: flex;
+  margin-top: 4%;
+  margin-left: 3%;
+  padding-right: 0;
 }
 
-.estrela-cadastro {
-  width: 7%;
-  height: 12px;
-  margin: 8px 8px 0 16px;
+.imagem-estrela-cadastro {
+  margin-right: 5%;
+  height: 14px;
+  width: 12px;
 }
 
-.fechar-cadastro-endereco {
-  margin: 3.8% 0 0 0;
+.msg-campo-obrigatorio-cadastro {
+  color: #FFFFFF;
+  white-space: nowrap;
+  margin-top: 1%;
 }
 
-.fechar-endereco {
+.imagem-fechar-cadastro {
+  width: 110%;
+  height: 33%;
+}
+
+.fechar-cadastro {
   cursor: pointer;
+  margin-top: 4%;
+  margin-left: 4%;
 }
+
+
 
 //================================ Menu global =============================
 h6, p {
@@ -73,6 +91,7 @@ h6, p {
 .global {
   display: flex;
   opacity: 0.05;
+  background-color: #61707ae5;
 }
 
 .cabecalho-formularios {

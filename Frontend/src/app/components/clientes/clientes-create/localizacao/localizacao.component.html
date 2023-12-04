@@ -1,32 +1,35 @@
 <div class="msgcadastrar">
   <div class="cabecalho-msg-cadastrar">
 
-    <div class="simbolo-add-endereco">
-      <img src="../../../../../assets/simboloAdd.png" alt="simbolo-adcionar-endereco">
+    <div class="imagemAdicionar">
+      <div class="circulo">
+      </div>
+      <img class="simbolo-add" src="../../../../../assets/simboloAdd.png" alt="">
     </div>
 
-    <div class="msg-novo-endereco">
+    <div class="msg-de-cadastro">
       <p>Novo endereço</p>
     </div>
 
-    <hr class="cadastro-novo-endereco">
-
-    <div class="campos-obrigatorios-endereco">
-      <img class="estrela-cadastro" src="../../../../../assets/estrela.png" alt="estrela-campo-obrigatório">
-      <p>Campos obrigatórios</p>
+    <div class="linha-do-cadastro">
+      <hr class="linha-cadastro">
     </div>
 
-    <div class="fechar-cadastro-endereco">
-      <img class="fechar-endereco" src="../../../../../assets/fechar.png" alt="fechar-cadastro"
-      (click)="funcaoTeste()">
+    <div class="campo-obrigatorio-cadastro">
+
+      <div class="imagem-estrela-cadastro">
+        <img src="../../../../../assets/estrela.png" alt="">
+      </div>
+
+      <div class="msg-campo-obrigatorio-cadastro">Campo obrigatório</div>
+
     </div>
 
-    <div>
-      <p *ngIf="teste">oi</p>
+    <div class="fechar-cadastro">
+      <img class="imagem-fechar-cadastro" src="../../../../../assets/fechar.png" alt="">
     </div>
+
   </div>
-
-  <input type="text">
 
 </div>
 
