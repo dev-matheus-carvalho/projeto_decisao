@@ -1,4 +1,4 @@
-<div class="msgcadastrar">
+<div class="msgcadastrar" *ngIf="telaCadastroEndereco">
   <div class="cabecalho-msg-cadastrar">
 
     <div class="imagemAdicionar">
@@ -26,14 +26,104 @@
     </div>
 
     <div class="fechar-cadastro">
-      <img class="imagem-fechar-cadastro" src="../../../../../assets/fechar.png" alt="">
+      <img class="imagem-fechar-cadastro" src="../../../../../assets/fechar.png" alt=""
+      (click)="fecharCadastroEndereco()">
     </div>
 
   </div>
 
+  <div class="formulário-cadastro-geral">
+
+    <div class="cep-logradouro-geral">
+      <div class="cep">
+
+        <div class="campo-obrigatorio-cep">
+          <p>CEP</p>
+          <img class="estrela-cep" src="../../../../../assets/estrela.png" alt="">
+        </div>
+
+        <input type="email" class="input-cep form-control" id="exampleFormControlInput1" placeholder="00.000-000">
+      </div>
+
+      <div class="logradouro">
+
+        <div class="campo-obrigatorio-logradouro">
+          <p>Logradouro</p>
+          <img class="estrela-logradouro" src="../../../../../assets/estrela.png" alt="">
+        </div>
+
+        <input type="text" class="input-logradouro form-control" id="exampleFormControlInput1">
+      </div>
+
+    </div>
+
+    <div class="numero-complemento-geral">
+      <div class="numero">
+
+        <div class="campo-obrigatorio-numero">
+          <p>Número</p>
+          <img class="estrela-numero" src="../../../../../assets/estrela.png" alt="">
+        </div>
+
+        <input type="text" class="input-numero form-control" id="exampleFormControlInput1">
+      </div>
+
+      <div class="complemento">
+
+        <div class="campo-obrigatorio-complemento">
+          <p>Complemento</p>
+          <img class="estrela-complemento" src="../../../../../assets/estrela.png" alt="">
+        </div>
+
+        <input type="text" class="input-complemento form-control" id="exampleFormControlInput1">
+      </div>
+
+    </div>
+
+    <div class="bairro-cidade-estado-geral">
+      <div class="bairro">
+
+        <div class="campo-obrigatorio-bairro">
+          <p>Bairro</p>
+          <img class="estrela-bairro" src="../../../../../assets/estrela.png" alt="">
+        </div>
+
+        <input type="text" class="input-bairro form-control" id="exampleFormControlInput1">
+      </div>
+
+      <div class="cidade">
+
+        <div class="campo-obrigatorio-cidade">
+          <p>Cidade</p>
+          <img class="estrela-cidade" src="../../../../../assets/estrela.png" alt="">
+        </div>
+
+        <input type="text" class="input-cidade form-control" id="exampleFormControlInput1">
+      </div>
+
+      <div class="estado">
+
+        <div class="campo-obrigatorio-cidade">
+          <p>Estado</p>
+          <img class="estrela-estado" src="../../../../../assets/estrela.png" alt="">
+        </div>
+
+        <input type="text" class="input-estado form-control" id="exampleFormControlInput1">
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="botoes-cadastrar-endereco-geral">
+    <button type="button" class="cancelar-cadastro-endereco btn btn-light" (click)="fecharCadastroEndereco()">Cancelar</button>
+    <button type="button" class="salvar-novo-endereco btn btn-primary">Salvar</button>
+  </div>
+
 </div>
 
-<div class="global" disabled="true">
+<div class="{{ filtroTela }}" disabled="true">
   <div class="cabecalho-formularios">
 
     <div class="cabecalho">
@@ -67,7 +157,7 @@
 
         </div>
 
-        <a class="add-enderecos">+ Adicionar endereço</a>
+        <a class="add-enderecos" (click)="abrirCadastroEndereco()">+ Adicionar endereço</a>
 
         <div class="nao-mostrar-cards-enderecos" *ngIf="!showEnderecos"></div>
 
@@ -82,14 +172,14 @@
               </p>
             </div>
 
-            <div class="endereco-principal" *ngIf="i.isPrincipal">
+            <div class="endereco-principal" *ngIf="i.is_principal">
               <span class="texto-endereco-principal badge text-bg">Endereço principal</span>
             </div>
 
-            <hr class="linha-separador-endereco" *ngIf="i.isPrincipal">
-            <hr class="linha-separador-endereco-dois" *ngIf="!i.isPrincipal">
+            <hr class="linha-separador-endereco" *ngIf="i.is_principal">
+            <hr class="linha-separador-endereco-dois" *ngIf="!i.is_principal">
 
-            <div class="icones-enderecos" *ngIf="i.isPrincipal">
+            <div class="icones-enderecos" *ngIf="i.is_principal">
 
               <div class="icone-editar-endereco">
                 <img src="../../../../../assets/editar.png" alt="editar-endereco">
@@ -102,7 +192,7 @@
             </div>
 
 
-            <div class="icones-enderecos-dois" *ngIf="!i.isPrincipal">
+            <div class="icones-enderecos-dois" *ngIf="!i.is_principal">
 
               <div class="icone-editar-endereco">
                 <img src="../../../../../assets/editar.png" alt="editar-endereco">

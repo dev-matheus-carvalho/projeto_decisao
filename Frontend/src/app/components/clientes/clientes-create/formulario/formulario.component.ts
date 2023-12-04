@@ -104,6 +104,7 @@ export class FormularioComponent {
         this.desabilatar = 'true';
         const novoCliente = await this.clientesService.createCliente(this.cliente);
         this.idCliente = novoCliente.idCliente;
+        localStorage.setItem('idCliente', this.idCliente);
 
         // const cpf = false;
 
@@ -201,6 +202,8 @@ export class FormularioComponent {
       }
 
       await this.clientesService.updateCliente(this.idCliente, this.clienteUpdate);
+      // localStorage.setItem('idCliente', '');
+      // localStorage.setItem('idCliente', this.idCliente);
 
       this.router.navigate(['clientes/criar/localizacao']);
 

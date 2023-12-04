@@ -1,19 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EnderecoCompleto, GetEndereco } from 'src/app/interfaces/EnderecoInterface';
+import { EnderecosService } from 'src/app/services/enderecos/enderecos.service';
 
 @Component({
   selector: 'app-localizacao',
   templateUrl: './localizacao.component.html',
   styleUrls: ['./localizacao.component.scss']
 })
-export class LocalizacaoComponent {
-  meuArray = [
-    {endereco: 'Rua L1, Qd53, Lt24, Casa Prata, Centro Goiânia - GO CEP: 74950-100', isPrincipal: false},
-    {endereco: 'Rua L2, Qd53, Lt24, Casa Prata, Centro Goiânia - GO CEP: 74950-100', isPrincipal: true},
-    {endereco: 'Rua L3, Qd53, Lt24, Casa Prata, Centro Goiânia - GO CEP: 74950-100', isPrincipal: false},
-    // {endereco: 'Rua L4, Qd53, Lt24, Casa Prata, Centro Goiânia - GO CEP: 74950-100', isPrincipal: false},
-    // {endereco: 'Rua L5, Qd53, Lt24, Casa Prata, Centro Goiânia - GO CEP: 74950-100', isPrincipal: false},
-    // {endereco: 'Rua L6, Qd53, Lt24, Casa Prata, Centro Goiânia - GO CEP: 74950-100', isPrincipal: false},
-  ];
+export class LocalizacaoComponent implements OnInit {
+
+  meuArray: Array<EnderecoCompleto> = [];
 
   arrayTelefones = [
     {numero: '(00) 0 0000-0000', isPrincipal: false},
@@ -27,7 +23,10 @@ export class LocalizacaoComponent {
     {email: 'teste3@decisaosistemas.com.br', isPrincipal: false},
   ];
 
-  teste: boolean = false;
+  enderecos: EnderecoCompleto = {};
+
+  telaCadastroEndereco: boolean = false;
+  filtroTela: string = 'global';
 
   email: string = '';
 
@@ -49,6 +48,32 @@ export class LocalizacaoComponent {
   showInputCadastroTelefone: boolean = false;
 
   habilitarBotaoSalvarEmail: boolean = false;
+
+  constructor(private enderecosService: EnderecosService) {}
+
+  ngOnInit(): void {
+    this.listarEnderecos();
+  }
+
+  async listarEnderecos() {
+    try {
+      const enderecos = await this.enderecosService.getEnderecos();
+
+      for(let i of enderecos) {
+        const enderecoCompleto = `${i.logradouro}, ${i.complemento}, ${i.bairro} ${i.cidade} ${i.estado} - CEP: ${i.cep}`;
+        const enderecoPrincipal = i.is_principal;
+
+        this.enderecos.endereco = enderecoCompleto;
+        this.enderecos.is_principal = enderecoPrincipal;
+
+        this.meuArray.push(this.enderecos);
+
+      }
+      console.log(enderecos);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   inverterSentidoDaSeta() {
     if (this.seta === false) {
@@ -120,7 +145,14 @@ export class LocalizacaoComponent {
     this.showInputCadastroEmail = false;
   }
 
-  funcaoTeste() {
-    this.teste = !this.teste;
+  abrirCadastroEndereco() {
+    this.telaCadastroEndereco = true;
+    this.filtroTela = 'global-filtro'
   }
+
+  fecharCadastroEndereco() {
+    this.telaCadastroEndereco = false;
+    this.filtroTela = 'global';
+  }
+
 }
