@@ -5,11 +5,13 @@
 
   <div class="painel">
 
+
     <div class="menu" *ngIf="show"><app-menu></app-menu></div>
 
     <div>
       <router-outlet></router-outlet>
     </div>
+
 
     <div class="sairSistema" *ngIf="showMsgSair">
 
@@ -37,7 +39,6 @@
         type="button" class="btn-sair btn btn-primary"
         routerLink="login" (click)="fecharJanela()"
         >Sim, sair</button>
-
       </div>
     </div>
 
@@ -45,3 +46,4 @@
 
   <div class="footer" *ngIf="show"><app-footer></app-footer></div>
 </div>
+

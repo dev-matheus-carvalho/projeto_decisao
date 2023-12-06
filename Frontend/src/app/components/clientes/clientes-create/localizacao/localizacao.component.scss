@@ -276,475 +276,94 @@
 
 
 //================================ Menu global =============================
-h6, p {
-  color: azure;
-}
+//==========================================================================
 
-.global {
-  display: flex;
-  // opacity: 0.05;
-  // background-color: #61707ae5;
-}
 
-.global-filtro {
-  display: flex;
-  opacity: 0.05;
-  background-color: #61707ae5;
-}
+//*********************************** Geral ********************************
 
-.cabecalho-formularios {
-  width: 83.3%;
-}
-
-.cabecalho {
-  display: flex;
-  margin-top: 0;
-  margin: 20px 0 0 20px;
+p, div, hr {
   color: white;
 }
 
-hr {
-  color: beige;
-  margin-top: 20px;
-  margin-left: 8px;
-  // width: 660px;
-  width: 69%;
-}
-
-.campos {
-  color: #6C757D;
-  margin-top: 7px;
+.painel-principal {
+  background-color: rgb(163, 163, 161);
   display: flex;
+  width: 100%;
 }
 
-.estrela {
-  margin-top: 5px;
-  margin-left: 4px;
-  margin-right: 2px;
-  height: 14px;
-  width: 12px;
+
+//******************************* Localização ******************************
+.localizacao-geral {
+  margin: 20px 0 0 20px;
 }
 
-.mensagem {
-  padding-top: 0px;
+.cabecalho-localizacao {
+  // background-color: #6299e7;
+  // margin: 20px 0 20px 20px;
+  display: flex;
+  width: 100%;
 }
 
-.formularios {
-  margin-top: 20px;
-  margin-left: 20px;
-  // margin-right: 1px;
+.hr-cabecalho-global {
+  background-color: chartreuse;
+  color: #212529;
+  width: 100%;
+  // padding-right: 30%;
 }
 
-.endereos {
+
+.hr-cabecalho {
+  color: #212529;
+  width: 720px;
+  margin-left: 10px;
+  border-width: 3px;
   margin-right: 0;
 }
 
-.cabecalho-endereco {
-  color: aliceblue;
+.campos-obrigatorio-global {
+  background-color: #b1c7e5;
   display: flex;
+  margin-left: 1%;
 }
 
-.titulo-enderecos {
-  color: white;
-  font-size: 16px;
+.imagem-estrela-campo-obrigatorio {
+  width: 12px;
+  height: 12px;
+  margin-top: 10px;
+  margin-right: 8px;
 }
 
-.linha-setas {
-  width: 92%;
-  display: flex;
+.msg-campo-obrigatrio {
+  white-space: nowrap;
+  margin-top: 3px;
 }
 
-.linha-endereco {
-  border-color: white;
-  color: white;
-  font-weight: bold;
-  margin-top: 11px;
-  width: 100%;
-  border-width: 3px;
-  // z-index: 100%;
-  // position: relative;
-}
 
-.seta-up {
-  cursor: pointer;
-  width: 1.6%;
-  height: 60%;
-  margin-top: 0.2%;
-  margin-left: 0.7%;
-}
-.seta-down {
-  cursor: pointer;
-  width: 1.6%;
-  height: 60%;
-  margin-top: 0.5%;
-  margin-left: 0.7%;
-}
+//******************************* Menu lateral *****************************
 
-.add-enderecos {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #0D6CF2;
-}
-
-.nao-mostrar-cards-enderecos{
-  width: 1120px;
-  margin-right: 100%;
-  padding-right: 100%;
-}
-
-.cards-enderecos {
-  margin-top: 20px;
-  width: 98%;
-  display: flex;
-}
-
-.card-endereco-global {
-  background-color: #2F3337;
-  width: 50%;
-  border-radius: 5%;
-  margin-right: 1%;
-}
-
-.informacoes-enderecos {
-  padding: 16px 16px 6px 14px;
-  padding-bottom: 20px;
-}
-
-.texto-endereco {
-  color: white;
-  display: flex;
-  text-align: center;
-  // white-space: nowrap;
-}
-
-.endereco-principal {
-  margin-left: 20%;
-  padding-bottom: 5px;
-}
-
-.texto-endereco-principal {
-  background-color: #FFFFFF;
-  color: #0D6CF2;
-}
-
-.linha-separador-endereco {
-  margin-left: 0;
-  width: 100%;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.linha-separador-endereco-dois {
-  margin-left: 0;
-  width: 100%;
-  margin-top: 50px;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.icones-enderecos {
-  display: flex;
-  padding-bottom: 20px;
-  margin-left: 40%;
-  margin-top: 9px;
-  margin-bottom: 0;
-}
-
-.icones-enderecos-dois {
-  display: flex;
-  padding-bottom: 0;
-  margin-left: 40%;
-  margin-top: 9px;
-  margin-bottom: 0;
-}
-
-.icone-editar-endereco {
-  margin-right: 14px;
-}
-
-.icone-editar-endereco, .icone-deletar-endereco {
-  cursor: pointer;
-}
-
-.cabecalho-telefone {
-  color: aliceblue;
-  display: flex;
-  margin-top: 2.5%;
-  width: 100%;
-}
-
-.linha-setas-telefone {
-  width: 93.4%;
-  display: flex;
-}
-
-.seta-up-telefone {
-  cursor: pointer;
-  width: 1.6%;
-  height: 60%;
-  margin-top: 0.2%;
-  margin-left: 0.7%;
-}
-.seta-down-telefone {
-  cursor: pointer;
-  width: 1.6%;
-  height: 60%;
-  margin-top: 0.5%;
-  margin-left: 0.7%;
-}
-
-.linha-telefone {
-  border-color: white;
-  color: white;
-  font-weight: bold;
-  margin-top: 11px;
-  width: 100%;
-  border-width: 3px;
-}
-
-.add-telefones-global {
-  margin-bottom: 1%;
-}
-
-.add-telefones {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #0D6CF2;
-}
-
-.cadastrar-telefone {
-  display: flex;
-}
-
-.input-telefone {
+.menu-lateral {
+  // background-color: #0D6CF2;
   width: 20%;
-  margin-top: 1.4%;
-}
-
-.input-cadastrar-telefone {
-  background-color: #2F3337;
-  color: white;
-}
-
-.input-cadastrar-telefone::placeholder {
-  color: white;
-  opacity: 0.2;
-}
-
-.botoes-cadastrar-telefone {
-  margin-top: 1.4%;
-  margin-left: 20px;
-}
-
-.cancelar-telefone {
-  margin-right: 8px;
-  color: #6C757D;
-}
-
-.lista-telefones-global {
-  // background-color: #a4abb4;
-  width: 100%;
-}
-
-.lista-telefones {
+  height: 30%;
+  position: absolute;
   display: flex;
-  margin: 0 0 -2px 0;
+  z-index: 100;
+  top: 7%;
+  left: 83.5%;
 }
 
-.telefone-principal-global {
-  margin-left: 40%;
+.opcoes-barra-menu {
+  margin-top: 1%;
 }
 
-.telefone-principal {
-  background-color: white;
-  color: #5DC02B;
-}
-
-.icones-telefone {
-  margin-left: 36%;
-}
-
-.icones-telefone-dois {
-  margin-left: 82%;
-}
-
-.icone-editar-telefone, .icone-deletar-telefone {
+.dados-cadastrais, .localizacao, .representantes {
   cursor: pointer;
 }
 
-.icone-editar-telefone {
-  margin-right: 16px;
-}
-
-.cabecalho-email {
-  color: aliceblue;
-  display: flex;
-  margin-top: 2.5%;
-  width: 100%;
-}
-
-.linha-setas-email {
-  width: 94%;
-  display: flex;
-}
-
-.seta-up-email {
-  cursor: pointer;
-  width: 1.6%;
-  height: 60%;
-  margin-top: 0.2%;
-  margin-left: 0.7%;
-}
-
-.seta-down-email {
-  cursor: pointer;
-  width: 1.6%;
-  height: 60%;
-  margin-top: 0.5%;
-  margin-left: 0.7%;
-}
-
-.add-emails-global {
-  margin-bottom: 1%;
-}
-
-.add-emails {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #0D6CF2;
-}
-
-.cadastrar-email {
-  display: flex;
-}
-
-.input-email {
-  width: 21%;
-  margin-top: 1.4%;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.input-cadastrar-email {
-  background-color: #2F3337;
-  color: white;
-}
-
-.input-cadastrar-email::placeholder {
-  color: white;
-  opacity: 0.2;
-}
-
-.botoes-cadastrar-email {
-  margin-top: 1.4%;
-  margin-left: 20px;
-}
-
-.cancelar-email {
-  margin-right: 8px;
-  color: #6C757D;
-}
-
-.botao-salvar-desabilitado-email {
-  background-color: #F5F7FA;
-  color: #CED4DA;
-}
-
-.check-email-principal-global {
-  margin-top: -8px;
-  margin-left: 2px;
-  margin-bottom: 20px;
-}
-
-.check-email-principal {
-  background-color: #2F3337;
-}
-
-.label-check-email {
-  color: #6C757D;
-}
-
-.lista-emails-global {
-  // background-color: #a4abb4;
-  width: 100%;
-}
-
-.lista-emails {
-  display: flex;
-  margin: 0 0 -2px 0;
-}
-
-.email-principal-global {
-  margin-left: 30.6%;
-}
-
-.email-principal {
-  background-color: white;
-  color: #5DC02B;
-}
-
-.icones-email {
-  margin-left: 35.8%;
-}
-
-.icones-email-dois {
-  margin-left: 72.5%;
-}
-
-.icone-editar-email, .icone-deletar-email {
-  cursor: pointer;
-}
-
-.icone-editar-email {
-  margin-right: 16px;
-}
 
 
-//================================== Menu Lateral ==========================
 
-.menu {
-  margin-left: 0px;
-  margin-top: -45px;
-  color: aliceblue;
-  display: flex;
-}
-
-.navegacao {
-  margin-left: 10px;
-}
-
-.linha {
-  color: white;
-  height: 100%;
-  margin-right: 0px;
-  margin-top: -1px;
-  // margin-left: -20px;
-}
-
-.opcoes-rotas {
-  margin-top: 20px;
-  margin-left: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #6C757D;
-}
-
-.selecionar {
-  border-left: solid 5px #0D6CF2;
-}
-
-.link {
-  margin-left: 35px;
-}
-
-.link-ativo {
-  margin-left: 30px;
-  color: #0D6CF2;
-  font-size: 16px;
-  font-weight: 600;
-}
+//==========================================================================
 
 //=============================== Botões da Página ==========================
 

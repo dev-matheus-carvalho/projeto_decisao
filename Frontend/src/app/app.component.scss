@@ -7,12 +7,16 @@
   display: flex;
 }
 
-.cabecalho {
-  display: flex;
-}
+// .cabecalho {
+//   display: block;
+// }
 
 .opcoes {
   color: antiquewhite;
+}
+
+.menu {
+  display: flex;
 }
 
 .sairSistema {
@@ -91,4 +95,9 @@
 .btn-sair {
   margin-top: -3px;
   margin-right: 0;
+}
+
+.footer {
+  // display: none;
+  width: 100%;
 }
