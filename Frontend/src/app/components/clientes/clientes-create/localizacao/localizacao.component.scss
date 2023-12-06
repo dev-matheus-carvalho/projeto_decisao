@@ -285,82 +285,115 @@ p, div, hr {
   color: white;
 }
 
-.painel-principal {
-  background-color: rgb(163, 163, 161);
+.principal {
   display: flex;
-  width: 100%;
 }
 
+//********************************* Cabeçalho *******************************
 
-//******************************* Localização ******************************
-.localizacao-geral {
+.cabecalho {
+  display: flex;
+  margin-top: 0;
   margin: 20px 0 0 20px;
+  color: white;
 }
 
-.cabecalho-localizacao {
-  // background-color: #6299e7;
-  // margin: 20px 0 20px 20px;
+.hr-primeira-linha {
+  color: beige;
+  margin-top: 20px;
+  margin-left: 8px;
+  width: 729px;
+  // width: 450px;
+}
+
+.campos {
+  color: #6C757D;
+  margin-top: 7px;
   display: flex;
-  width: 100%;
 }
 
-.hr-cabecalho-global {
-  background-color: chartreuse;
-  color: #212529;
-  width: 100%;
-  // padding-right: 30%;
-}
-
-
-.hr-cabecalho {
-  color: #212529;
-  width: 720px;
-  margin-left: 10px;
-  border-width: 3px;
-  margin-right: 0;
-}
-
-.campos-obrigatorio-global {
-  background-color: #b1c7e5;
-  display: flex;
-  margin-left: 1%;
-}
-
-.imagem-estrela-campo-obrigatorio {
+.estrela {
+  margin-top: 5px;
+  margin-left: 4px;
+  margin-right: 2px;
+  height: 14px;
   width: 12px;
-  height: 12px;
-  margin-top: 10px;
-  margin-right: 8px;
 }
 
-.msg-campo-obrigatrio {
-  white-space: nowrap;
-  margin-top: 3px;
+.mensagem {
+  padding-top: 0px;
 }
 
-
-//******************************* Menu lateral *****************************
-
-.menu-lateral {
-  // background-color: #0D6CF2;
-  width: 20%;
-  height: 30%;
-  position: absolute;
+.cabecalho-enderecos {
   display: flex;
-  z-index: 100;
-  top: 7%;
-  left: 83.5%;
+  margin-left: 20px;
 }
 
-.opcoes-barra-menu {
-  margin-top: 1%;
+.linha-endereco {
+  width: 800px;
+  margin-top: 12px;
+  margin-left: 8px;
 }
 
-.dados-cadastrais, .localizacao, .representantes {
+.seta-down {
+  width: 18px;
+  height: 18px;
+  margin: 6px 0 0 5px;
   cursor: pointer;
 }
 
+.col {
+  display: flex;
+}
 
+.card-enderecos {
+  margin-left: 8px;
+}
+
+
+//********************************* Menu de navegação *************************
+
+.menu-navegacao {
+  margin-left: 12px;
+  margin-top: -45px
+}
+
+.menu-cadastro {
+  display: flex;
+  margin-left: 10px;
+}
+
+.linha {
+  color: white;
+  height: 766px;
+  margin-right: 0px;
+  margin-top: -1px;
+}
+
+.opcoes-rotas {
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #6C757D;
+}
+
+.selecionar {
+  border-left: solid 5px #0D6CF2;
+}
+
+.link {
+  margin-left: 35px;
+}
+
+.link-ativo {
+  margin-left: 30px;
+  color: #0D6CF2;
+  font-size: 16px;
+  font-weight: 600;
+}
 
 
 //==========================================================================
