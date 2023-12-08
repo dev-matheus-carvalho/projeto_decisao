@@ -1,4 +1,6 @@
-<div class="msgcadastrar" *ngIf="telaCadastroEndereco">
+
+
+<!-- <div class="msgcadastrar" *ngIf="telaCadastroEndereco">
   <div class="cabecalho-msg-cadastrar">
 
     <div class="imagemAdicionar">
@@ -121,81 +123,61 @@
     <button type="button" class="salvar-novo-endereco btn btn-primary">Salvar</button>
   </div>
 
-</div>
+</div> -->
 
-<div class="principal">
 
-  <div>
+<div class="global">
+  <div class="cabecalho">
+    <h3>Localização</h3>
 
-    <div class="cabecalho">
-      <h3 class="titulo">Localização</h3>
 
-      <hr class="hr-primeira-linha">
-
-      <p class="campos">
-        <img class="estrela" src="../../../../assets/estrela.png" alt="">
-        <span class="mensagem">Campos obrigatórios</span>
-      </p>
-
+    <div class="linha-principal">
+      <hr class="linha-um">
     </div>
 
-    <div class="cabecalho-enderecos">
-      <h6>Endereços</h6>
-
-      <hr class="linha-endereco">
-
-      <img class="seta-down" src=".../../../../../../../assets/down.png">
+    <div class="imagem-campo-obrigatorio">
+      <img class="estrela-um" src="../../../../../assets/estrela.png" alt="">
+      <p class="titulo-campo-obrigatorio">Campos obrigatórios</p>
     </div>
 
+  </div>
+
+  <div class="cabecalho-endereco">
+
+    <h6 class="subtitulo">Endereços</h6>
+
+    <div class="linha-subcabecalho">
+      <hr class="linha-dois">
+    </div>
+
+    <img class="imagem-down" src="../../../../../assets/down.png">
+  </div>
 
 
 
-    <div class="teste container text-center">
-      <div class="teste row align-items-start" *ngFor="let i of meuArray">
-        <div class="coluna">
+  <div class="endereco">
 
-          <!-- <div class="caixa-principal">
-            <p class="um">{{i.logradouro}}, {{i.complemento}}, {{i.bairro}}</p>
-            <p class="dois">{{i.cidade}} - {{i.estado}}</p>
-          </div> -->
+    <div class=" container text-center">
+      <div class=" row align-items-start">
+        <div class="teste">
 
 
-          <div class="caixa-principal card">
-            <div class="card-body" *ngIf="!i.is_principal">
-              <p class="card-text">{{i.logradouro}} {{i.complemento}}, {{i.bairro}}</p>
-              <p class="card-text">{{i.cidade}}, {{i.estado}}</p>
-              <p class="card-text">CEP: {{i.cep}}</p>
+
+          <div class=" teste card" style="width: 18rem;">
+            <div class=" card-body">
+              <p class="card-text">Rua 001 Setor Bueno</p>
+              <p>Goiânia - Goiás</p>
+              <p class="card-text">CEP: 001001001</p>
 
               <hr>
 
-              <img src="../../../../../assets/editar.png" alt="">
-              <img src="../../../../../assets/deletar.png" alt="">
-            </div>
-
-            <div class="classe-secundaria">
-              <div class="card-body" *ngIf="i.is_principal">
-              <p class="card-text" style="word-break: break;">{{i.logradouro}} {{i.complemento}}, {{i.bairro}}</p>
-              <p class="card-text">{{i.cidade}}, {{i.estado}}</p>
-              <p class="card-text">CEP: {{i.cep}}</p>
-
-              <div class="div-endereco-principal">
-                <span class="badge text-bg" style="color: #0D6CF2; background-color: aliceblue;">Principal</span>
+              <div>
+                <img src="../../../../../assets/editar.png" alt="">
+                <img src="../../../../../assets/deletar.png" alt="">
               </div>
-
-              <hr class="linha-caixa-principal">
-              <div class="linha-caixa">
-              </div>
-
-              <img src="../../../../../assets/editar.png" alt="">
-              <img src="../../../../../assets/deletar.png" alt="">
             </div>
-            </div>
+
           </div>
-
-
-
-
-
 
 
 
@@ -205,33 +187,8 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-  </div> <!-- Final cabeçalho geral -->
-
-  <div class="linha d-flex">
-        <div class="vr"></div>
-      </div>
-
-
-  <div class="menu-navegacao">
-    <div class="menu-cadastro">
-      <!-- <div class="linha d-flex">
-        <div class="vr"></div>
-      </div> -->
-
-      <div class="opcoes-rotas">
-        <p><a class="link" routerLink="/clientes/criar/formulario">Dados cadastrais</a></p>
-        <p class="selecionar"><a class="link-ativo" routerLink="/clientes/criar/localizacao">Localização</a></p>
-        <p><a class="link" routerLink="/clientes/criar/representantes">Representantes</a></p>
-      </div>
-    </div>
   </div>
-
-
-
 </div>
-<button style="margin-top: 200px;">Oi</button>
+
+
+
