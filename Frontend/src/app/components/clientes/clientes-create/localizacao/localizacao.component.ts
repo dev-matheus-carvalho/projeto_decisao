@@ -9,7 +9,7 @@ import { EnderecosService } from 'src/app/services/enderecos/enderecos.service';
 })
 export class LocalizacaoComponent implements OnInit {
 
-  meuArray: Array<EnderecoCompleto> = [];
+  meuArray: GetEndereco[] = [];
 
   arrayTelefones = [
     {numero: '(00) 0 0000-0000', isPrincipal: false},
@@ -59,17 +59,20 @@ export class LocalizacaoComponent implements OnInit {
     try {
       const enderecos = await this.enderecosService.getEnderecos();
 
-      for(let i of enderecos) {
-        const enderecoCompleto = `${i.logradouro}, ${i.complemento}, ${i.bairro} ${i.cidade} ${i.estado} - CEP: ${i.cep}`;
-        const enderecoPrincipal = i.is_principal;
+      // for(let i of enderecos) {
 
-        this.enderecos.endereco = enderecoCompleto;
-        this.enderecos.is_principal = enderecoPrincipal;
+      //   const enderecoCompleto = `${i.logradouro}, ${i.complemento}, ${i.bairro} ${i.cidade} ${i.estado} - CEP: ${i.cep}`;
+      //   const enderecoPrincipal = i.is_principal;
 
-        this.meuArray.push(this.enderecos);
+      //   this.enderecos.endereco = enderecoCompleto;
+      //   this.enderecos.is_principal = enderecoPrincipal;
 
-      }
-      console.log(enderecos);
+      //   this.meuArray.push(this.enderecos);
+
+      // }
+      this.meuArray = enderecos;
+      console.log(typeof enderecos);
+      console.log(this.meuArray)
     } catch (error) {
       console.log(error)
     }

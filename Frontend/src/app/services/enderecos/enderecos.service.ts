@@ -13,7 +13,8 @@ export class EnderecosService {
 
   getEnderecos(): Promise<Array<GetEndereco>> {
     return new Promise((resolve, reject) => {
-      const idCliente = localStorage.getItem('idCliente');
+      // const idCliente = localStorage.getItem('idCliente');
+      const idCliente = '8f62bb95-083c-4836-ab10-e6a1c034c697';
 
       this.http.get<Array<GetEndereco>>(`${this.baseUrl}/${idCliente}`)
       .subscribe({

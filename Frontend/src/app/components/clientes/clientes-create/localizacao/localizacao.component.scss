@@ -287,6 +287,9 @@ p, div, hr {
 
 .principal {
   display: flex;
+  width: 96%;
+  margin-right: 5px;
+  background-color: rgb(47, 102, 102);
 }
 
 //********************************* Cabeçalho *******************************
@@ -341,21 +344,42 @@ p, div, hr {
   margin: 6px 0 0 5px;
   cursor: pointer;
 }
-
-.col {
+.teste {
   display: flex;
+  margin-left: 0px;
+  margin-top: 8px;
+  background-color: #0D6CF2;
+  width: 100%;
 }
 
-.card-enderecos {
-  margin-left: 8px;
+
+
+
+.caixa-principal {
+  background-color: #2F3337;
+  width: auto;
+  height: auto;
 }
 
+.classe-secundaria {
+  height: auto;
+}
+
+.div-endereco-principal {
+  margin-bottom: 18px;
+}
+
+// .classe-secundaria {
+
+// }
 
 //********************************* Menu de navegação *************************
 
 .menu-navegacao {
-  margin-left: 12px;
-  margin-top: -45px
+  margin-left: 1110px;
+  margin-top: -45px;
+  z-index: 100;
+  position: absolute;
 }
 
 .menu-cadastro {
@@ -364,10 +388,14 @@ p, div, hr {
 }
 
 .linha {
+  background-color: rgb(238, 238, 170);
   color: white;
-  height: 766px;
+  // z-index: 100;
+  // position: absolute;
+  height: 2000px;
+  margin-top: -40px;
   margin-right: 0px;
-  margin-top: -1px;
+  margin-left: 15px;
 }
 
 .opcoes-rotas {

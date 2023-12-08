@@ -150,10 +150,58 @@
 
 
 
-    <div class="container text-center">
-      <div class="row align-items-start">
-        <div class="col">
-          <p class="card-enderecos">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, unde.</p>
+    <div class="teste container text-center">
+      <div class="teste row align-items-start" *ngFor="let i of meuArray">
+        <div class="coluna">
+
+          <!-- <div class="caixa-principal">
+            <p class="um">{{i.logradouro}}, {{i.complemento}}, {{i.bairro}}</p>
+            <p class="dois">{{i.cidade}} - {{i.estado}}</p>
+          </div> -->
+
+
+          <div class="caixa-principal card">
+            <div class="card-body" *ngIf="!i.is_principal">
+              <p class="card-text">{{i.logradouro}} {{i.complemento}}, {{i.bairro}}</p>
+              <p class="card-text">{{i.cidade}}, {{i.estado}}</p>
+              <p class="card-text">CEP: {{i.cep}}</p>
+
+              <hr>
+
+              <img src="../../../../../assets/editar.png" alt="">
+              <img src="../../../../../assets/deletar.png" alt="">
+            </div>
+
+            <div class="classe-secundaria">
+              <div class="card-body" *ngIf="i.is_principal">
+              <p class="card-text" style="word-break: break;">{{i.logradouro}} {{i.complemento}}, {{i.bairro}}</p>
+              <p class="card-text">{{i.cidade}}, {{i.estado}}</p>
+              <p class="card-text">CEP: {{i.cep}}</p>
+
+              <div class="div-endereco-principal">
+                <span class="badge text-bg" style="color: #0D6CF2; background-color: aliceblue;">Principal</span>
+              </div>
+
+              <hr class="linha-caixa-principal">
+              <div class="linha-caixa">
+              </div>
+
+              <img src="../../../../../assets/editar.png" alt="">
+              <img src="../../../../../assets/deletar.png" alt="">
+            </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
         </div>
       </div>
     </div>
@@ -164,13 +212,16 @@
 
   </div> <!-- Final cabeçalho geral -->
 
+  <div class="linha d-flex">
+        <div class="vr"></div>
+      </div>
 
 
   <div class="menu-navegacao">
     <div class="menu-cadastro">
-      <div class="linha d-flex">
+      <!-- <div class="linha d-flex">
         <div class="vr"></div>
-      </div>
+      </div> -->
 
       <div class="opcoes-rotas">
         <p><a class="link" routerLink="/clientes/criar/formulario">Dados cadastrais</a></p>
@@ -181,4 +232,6 @@
   </div>
 
 
+
 </div>
+<button style="margin-top: 200px;">Oi</button>
