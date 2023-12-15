@@ -19,22 +19,48 @@
   }
 }
 
-.menu-home {
+.menu-home-on {
   a {
+    border-right: 1px solid #0d6cf2;
     width: 52px;
     height: 60px;
     display: flex;
     justify-content: center; // centralizar no eixo x
     align-items: center; // centralizar no eixo y
+    cursor: pointer;
   }
 }
 
-.menu-cliente {
+.menu-home-off {
   a {
     width: 52px;
     height: 60px;
     display: flex;
     justify-content: center; // centralizar no eixo x
     align-items: center; // centralizar no eixo y
+    cursor: pointer;
+  }
+}
+
+.menu-cliente-on {
+  a {
+    border-right: 1px solid #0d6cf2;
+    width: 52px;
+    height: 60px;
+    display: flex;
+    justify-content: center; // centralizar no eixo x
+    align-items: center; // centralizar no eixo y
+    cursor: pointer;
+  }
+}
+
+.menu-cliente-off {
+  a {
+    width: 52px;
+    height: 60px;
+    display: flex;
+    justify-content: center; // centralizar no eixo x
+    align-items: center; // centralizar no eixo y
+    cursor: pointer;
   }
 }

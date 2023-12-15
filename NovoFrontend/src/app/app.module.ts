@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { CabecalhoComponent } from './shared/components/cabecalho/cabecalho.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { WelcomeModule } from './components/welcome/welcome.module';
+import { ClientsModule } from './components/clients/clients.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CabecalhoComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    WelcomeModule,
+    ClientsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
 
+  public isHomeOn: boolean = true;
+  public isClientOn: boolean = false
+
+  public home(): void {
+    this.isHomeOn = true;
+    this.isClientOn = false;
+  }
+
+  public client(): void {
+    this.isHomeOn = false;
+    this.isClientOn = true;
+  }
 }
