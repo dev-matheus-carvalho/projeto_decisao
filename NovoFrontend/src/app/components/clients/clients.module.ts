@@ -5,11 +5,13 @@ import { ClientsRoutingModule } from './clients-routing.module';
 import { ClientsReadComponent } from './clients-read/clients-read.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientsComponent } from './clients.component';
 
 
 @NgModule({
   declarations: [
-    ClientsReadComponent
+    ClientsReadComponent,
+    ClientsComponent
   ],
   imports: [
     CommonModule,
