@@ -10,6 +10,6 @@ export interface Clientes {
   autor?: string,
   situacao?: string,
   idUsuario?: string,
-  createdAt?: Date,
+  createdAt: Date | string,
   updatedAt?: Date
 }

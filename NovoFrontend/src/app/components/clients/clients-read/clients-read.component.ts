@@ -34,7 +34,21 @@ export class ClientsReadComponent implements OnInit {
     this.listaClientes.usuario = usuarios.usuario;
     this.listaClientes.clientes = usuarios.clientes;
 
-    console.log(this.listaClientes);
+    this.listaClientes.clientes.forEach((data) => {
+      const dataConvertida = new Date(data.createdAt);
+      const dataFormatada = this.formatDate(dataConvertida)
+
+      data.createdAt = dataFormatada;
+    });
+
   }
 
+  private formatDate(date: Date) {
+    return date.toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  }
 }
+
