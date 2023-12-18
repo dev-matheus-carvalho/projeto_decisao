@@ -4,7 +4,7 @@ import { ClientsReadComponent } from './clients-read/clients-read.component';
 import { ClientsComponent } from './clients.component';
 
 const clients: Routes = [
-  { path: '', component: ClientsComponent }
+  { path: '', component: ClientsReadComponent }
 ];
 
 @NgModule({
