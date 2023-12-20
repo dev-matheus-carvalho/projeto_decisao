@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -16,10 +17,16 @@ export class MenuComponent implements OnInit {
 
     if (page === 'home') {
       this.home()
-    } else {
+    } else if (page === 'clients') {
       this.client();
+    } else {
+      this.isHomeOn = false;
+      this.isClientOn = true;
+      this.router.navigate([`/${page}`]);
     };
   }
+
+  constructor(private router: Router) { }
 
   public home(): void {
     this.isHomeOn = true;
@@ -28,6 +35,7 @@ export class MenuComponent implements OnInit {
   }
 
   public client(): void {
+    this.router.navigate(['/clients']);
     this.isHomeOn = false;
     this.isClientOn = true;
     localStorage.setItem('page', 'clients');

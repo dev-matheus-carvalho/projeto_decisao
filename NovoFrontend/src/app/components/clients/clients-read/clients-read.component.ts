@@ -50,5 +50,9 @@ export class ClientsReadComponent implements OnInit {
       year: "numeric",
     });
   }
+
+  cadastrar() {
+    localStorage.setItem('page', 'create/formulario');
+  }
 }
 

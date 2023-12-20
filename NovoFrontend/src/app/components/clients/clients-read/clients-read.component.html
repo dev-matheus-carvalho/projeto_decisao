@@ -1,6 +1,13 @@
 <header>
   <h3 class="titulo">Clientes</h3>
-  <button type="button" class="btn btn-primary">Adicionar cliente</button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    routerLink="/create"
+    (click)="cadastrar()"
+  >
+    Adicionar cliente
+  </button>
 </header>
 
 <div class="clients" *ngIf="listaClientesVazia">
