@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClientsReadService } from 'src/app/shared/clients/clients-read/clients-read.service';
 import { ClientsCreateComponent } from './clients-create/clients-create.component';
 import { FormsComponent } from './clients-create/forms/forms.component';
+import { LocalizacaoComponent } from './clients-create/localizacao/localizacao.component';
 
 @NgModule({
   declarations: [
     ClientsReadComponent,
     ClientsCreateComponent,
     FormsComponent,
+    LocalizacaoComponent,
   ],
   imports: [
     CommonModule,

@@ -10,7 +10,7 @@ export class ClientsCreateComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  showStatus: boolean = true;
+  showStatus: boolean = false;
   cor: string = 'ativo';
   status: string = 'Ativo';
   upDown: boolean = false;
@@ -19,7 +19,7 @@ export class ClientsCreateComponent implements OnInit {
   negativo: string = 'Negativo';
 
   ngOnInit(): void {
-    this.router.navigate(['create/formulario']);
+    // this.router.navigate(['create/formulario']);
   }
 
   seta() {
@@ -31,14 +31,20 @@ export class ClientsCreateComponent implements OnInit {
     this.upDown = false;
     this.cor = 'ativo';
   }
+
   statusInativo() {
     this.status = this.inativo;
     this.upDown = false;
     this.cor = 'inativo';
   }
+
   statusNegativo() {
     this.status = this.negativo;
     this.upDown = false;
     this.cor = 'negativo';
+  }
+
+  salvar() {
+    this.router.navigate(['']);
   }
 }
