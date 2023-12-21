@@ -1,0 +1,20 @@
+.identificacao-e-data {
+  // background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .identificacao {
+    width: 30%;
+    margin-right: 20px;
+    input {
+      background-color: #212529;
+      color: aliceblue;
+    }
+  }
+
+  .data {
+    // background-color: burlywood;
+    margin-right: 47%;
+  }
+}
