@@ -13,7 +13,7 @@ export class FormsComponent {
   constructor(private router: Router) { }
 
   public salvar() {
-
+    localStorage.setItem('page', 'create/localizacao')
   }
 
 }
